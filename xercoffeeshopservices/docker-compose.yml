@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mysql-development:
+    domainname: xercoffeeshop
+    image: mysql:8.0.17
+    container_name: mysql_coffeeshop
+    hostname: mysql_coffeeshop
+    environment:
+      MYSQL_DATABASE: xercoffeeshop
+      MYSQL_ROOT_PASSWORD: icecoffee
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./build/mysql:/docker-entrypoint-initdb.d
