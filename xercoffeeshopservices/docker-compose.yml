@@ -5,6 +5,7 @@ services:
   mysql-development:
     image: mysql:8.0.17
     container_name: mysql-coffeeshop
+    hostname: xercoffeeshop
     environment:
       MYSQL_DATABASE: xercoffeeshop
       MYSQL_ROOT_PASSWORD: icecoffee
@@ -12,7 +13,7 @@ services:
     networks:
       - backend
     ports:
-      - "3306:3305"
+      - "3306:3306"
     volumes:
       - ./build/mysql:/docker-entrypoint-initdb.d
 
