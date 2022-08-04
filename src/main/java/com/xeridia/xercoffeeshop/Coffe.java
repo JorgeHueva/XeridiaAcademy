@@ -9,14 +9,6 @@ public class Coffe {
     private double coffePrice;
 
 
-
-    public Coffe(String typeCoffe) {
-        this.typeCoffe = typeCoffe;
-        this.numberCoffe = 0;
-        this.coffePrice = 0;
-        this.priceCoffe = 0;
-    }
-
     public Coffe(String typeCoffe, int numberCoffe, double priceCoffe) {
         this.typeCoffe = typeCoffe;
         this.numberCoffe = numberCoffe;
