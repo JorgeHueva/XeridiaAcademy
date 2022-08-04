@@ -9,6 +9,7 @@ public class Coffe {
     private double coffePrice;
 
 
+
     public Coffe(String typeCoffe) {
         this.typeCoffe = typeCoffe;
         this.numberCoffe = 0;
