@@ -1,15 +1,34 @@
 version: '3'
 
 services:
+
   mysql-development:
-    domainname: xercoffeeshop
     image: mysql:8.0.17
-    container_name: mysql_coffeeshop
-    hostname: mysql_coffeeshop
+    container_name: mysql-coffeeshop
     environment:
       MYSQL_DATABASE: xercoffeeshop
       MYSQL_ROOT_PASSWORD: icecoffee
+    restart: always
+    networks:
+      - backend
     ports:
-      - "3306:3306"
+      - "3306:3305"
     volumes:
       - ./build/mysql:/docker-entrypoint-initdb.d
+
+  phpmyadmin-development:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma-coffeeshop
+    environment:
+      PMA_HOST: mysql-development
+      MYSQL_ROOT_PASSWORD: icecoffee
+    depends_on:
+      - mysql-development
+    restart: always
+    networks:
+      - backend
+    ports:
+      - 8081:80
+
+networks:
+  backend:
