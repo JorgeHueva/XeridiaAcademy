@@ -9,21 +9,21 @@ public class Coffe {
     private double coffePrice;
 
 
-    public Coffe(String typeCoffe, int numberCoffe, double priceCoffe) {
-        this.typeCoffe = typeCoffe;
-        this.numberCoffe = numberCoffe;
-        this.coffePrice = priceCoffe;
-        this.priceCoffe = nuevoPrecio(priceCoffe);
-    }
+//    public Coffe(String typeCoffe, int numberCoffe, double priceCoffe) {
+//        this.typeCoffe = typeCoffe;
+//        this.numberCoffe = numberCoffe;
+//        this.coffePrice = priceCoffe;
+//        this.priceCoffe = nuevoPrecio(priceCoffe);
+//    }
 
-    public double nuevoPrecio (double priceCoffe){
-        return this.priceCoffe = priceCoffe * numberCoffe;
-    }
-    public void subeCafes (int cantidad){
-        int suma = 0;
-        suma = numberCoffe + cantidad;
-        this.numberCoffe = suma;
-    }
+//    public double nuevoPrecio (double priceCoffe){
+//        return this.priceCoffe = priceCoffe * numberCoffe;
+//    }
+//    public void subeCafes (int cantidad){
+//        int suma = 0;
+//        suma = numberCoffe + cantidad;
+//        this.numberCoffe = suma;
+//    }
     public String getTypeCoffe() {
         return typeCoffe;
     }

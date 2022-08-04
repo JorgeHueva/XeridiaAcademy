@@ -1,4 +1,7 @@
 package com.xeridia.xercoffeeshop;
 
-public interface Repository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface Repository  extends CrudRepository<Coffe, String> {
+
 }
