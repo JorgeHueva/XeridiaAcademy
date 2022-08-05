@@ -1,24 +1,25 @@
-CREATE TABLE Coffe(
-    Type_Coffe varchar (25) NOT NULL,
-    Price double NOT NULL
+CREATE TABLE coffe(
+    type_Coffe varchar (70) NOT NULL,
+    price double NOT NULL
 );
-CREATE TABLE Coffe_O(
-    Type_Coffe varchar (25),
+CREATE TABLE coffe_o(
+    type_Coffe varchar (70),
     num_Coffe int,
-    Price double,
+    price double,
     PRIMARY KEY (Type_Coffe)
 );
-CREATE TABLE Pedido(
-    ID  int,
+CREATE TABLE pedido(
+    id  int,
+    regist_date date,
     PRIMARY KEY (ID)
 );
-insert into Coffe (Type_Coffe, Price)
+insert into coffe (Type_Coffe, Price)
 values ('Cafe con leche',1.50);
-insert into Coffe (Type_Coffe, Price)
+insert into coffe (Type_Coffe, Price)
 values ('Cafe solo',1.30);
-insert into Coffe (Type_Coffe, Price)
+insert into coffe (Type_Coffe, Price)
 values ('Cafe cortado',1.20);
-insert into Coffe (Type_Coffe, Price)
+insert into coffe (Type_Coffe, Price)
 values ('Cola Cao',1.80);
-insert into Coffe (Type_Coffe, Price)
+insert into coffe (Type_Coffe, Price)
 values ('Capuchino',1.90);
