@@ -2,13 +2,12 @@ package com.xeridia.xercoffeeshop;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
-@RequestMapping(path = "demo")
+@RequestMapping(path = "cafeteria")
 public class ControllingCoffe {
 
     private Repository repository;
@@ -24,5 +23,10 @@ public class ControllingCoffe {
 
         repository.save(c);
         return "saved";
+    }
+    @GetMapping(path="/all")
+    public @ResponseBody Iterable<Coffe> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return repository.findAll();
     }
 }
