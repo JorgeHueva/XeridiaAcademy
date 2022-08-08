@@ -4,33 +4,35 @@ import javax.persistence.*;
 import java.util.Calendar;
 
 
-    @Entity
-    @Table(name = "Pedido")
-    public class Pedido {
 
-        @Id
-        @Column(name = "ID")
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
+@Entity
+@Table(name = "Pedido")
+public class Pedido {
 
-        @Temporal(TemporalType.TIMESTAMP)
-        @Column(name = "REGIST_DATE")
-        private Calendar registDate;
+    @Id
+    @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int order_id;
 
-        public long getId() {
-            return id;
-        }
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "REGIST_DATE")
+    private Calendar registDate;
 
-        public void setId(long id) {
-            this.id = id;
-        }
-
-        public Calendar getRegistDate() {
-            return registDate;
-        }
-
-        public void setRegistDate(Calendar registDate) {
-            this.registDate = registDate;
-        }
+    public int getOrder_id() {
+        return order_id;
     }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
+    }
+
+    public Calendar getRegistDate() {
+        return registDate;
+    }
+
+    public void setRegistDate(Calendar registDate) {
+        this.registDate = registDate;
+    }
+}
+
 
