@@ -16,6 +16,7 @@
     <ng-container matColumnDef="precio">
       <th mat-header-cell *matHeaderCellDef> Precio </th>
       <tr *ngFor= "let cafe of cafes">
+
         <td>{{cafe.price}}</td>
       </tr>
     </ng-container>
@@ -23,7 +24,7 @@
     <tr mat-header-row *matHeaderRowDef="columnas"></tr>
     <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[3, 5, 7]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 </div>
 
 <div class ="contenedor">
@@ -43,20 +44,18 @@
   </table>
 </div>
 
-<!--div class="contenedor">
-
+<div class="col-md-6 offset-md-3">
+<h3 class ="text-center">Pedido</h3>
+<form (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput name="tipo_cafe" [(ngModel)]="articuloselect.tipo" type="text" placeholder="Ingrese tipo de cafe">
+    <input matInput name="tipo_cafe" [(ngModel)]="coffe_o.typeCoffe" type="text" placeholder="Ingrese tipo de cafe">
   </mat-form-field>
-
+<br>
   <mat-form-field>
-      <input matInput name="numero" [(ngModel)]="articuloselect.numero" type="number" placeholder="Ingrese numero de cafes">
+      <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number" placeholder="Ingrese numero de cafes">
   </mat-form-field>
-
-  <mat-radio-group name="opciones" [(ngModel)]="operacionSeleccionada">
-    <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
-  </mat-radio-group>
-  <p>{{resultado}}</p>
-
-</div-->
+  <br>
+  <button class="btn btn-success">Guardar</button>
+</form>
+</div>
 

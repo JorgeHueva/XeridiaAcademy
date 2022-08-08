@@ -18,11 +18,12 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-      PedidoComponent,
-      PaginaPrincipalComponent
+    PedidoComponent,
+    PaginaPrincipalComponent,
    ],
   imports: [
     HttpClientModule,

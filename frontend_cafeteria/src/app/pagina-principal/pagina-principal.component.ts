@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
+import { Coffe_o } from '../coffe_o';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class PaginaPrincipalComponent implements OnInit {
   columnas: string[] = ['tipo', 'precio'];
 
   cafes: Coffe[] = [];
+  coffe_o: Coffe_o = new Coffe_o;
+
   dataSource:any;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -35,6 +38,10 @@ export class PaginaPrincipalComponent implements OnInit {
     this.pedidoServicio.obtenerLista().subscribe(dato => {
       this.cafes = dato;
     } )
+  }
+
+  onSubmit (){
+    console.log (this.coffe_o);
   }
 }
 

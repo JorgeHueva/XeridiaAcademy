@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coffe } from './coffe';
+import { Coffe_o } from './coffe_o';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,7 @@ constructor(private httpClient : HttpClient) { }
 obtenerLista (): Observable<Coffe []> {
   return this.httpClient.get<Coffe []>(`${this.baseURL}`);
 }
+//registrarEmpleado(coffe_o: Coffe_o) : Observable<Object>{
+  //return this.httpClient.post(`${this.baseURL}`);
+//}
 }
