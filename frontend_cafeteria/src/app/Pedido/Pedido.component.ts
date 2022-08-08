@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
-import { PaginaPrincipalComponent } from '../pagina-principal/pagina-principal.component';
+import { Component, OnInit } from '@angular/core';
+import { Coffe } from '../coffe';
+
+
 
 
 
@@ -11,26 +12,18 @@ import { PaginaPrincipalComponent } from '../pagina-principal/pagina-principal.c
 })
 export class PedidoComponent implements OnInit {
 
-  columnas: string[] = ['Tipo', 'Numero', 'Precio', 'borrar'];
+  filas: string[] = ['Tipo', 'Numero', 'Precio', 'borrar'];
 
-  datos: Pedido[] = [];
-
-
-
-  borrarFila(cod: number) {
-    if (confirm("Realmente quiere borrarlo?")) {
-      this.datos.splice(cod, 1);
-      tabla1.renderRows();
-    }
-  }
+  datos: Coffe[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.datos = [{
+      "typeCoffe" : "Cafe con leche",
+      "price" : 1.50
+    }];
   }
 }
 
-export class Pedido {
-  constructor(public tipo: string, public numero: number) {
-  }
-}
+

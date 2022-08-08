@@ -6,7 +6,7 @@ CREATE TABLE coffe_o(
     type_Coffe varchar (70),
     num_Coffe int,
     price double,
-    PRIMARY KEY (Type_Coffe)
+    PRIMARY KEY (type_Coffe)
 );
 CREATE TABLE pedido(
     id  int,

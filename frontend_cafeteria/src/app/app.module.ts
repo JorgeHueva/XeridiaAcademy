@@ -15,7 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { PedidoComponent } from './Pedido/Pedido.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { RouterModule } from '@angular/router';
       PaginaPrincipalComponent
    ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -39,7 +40,8 @@ import { RouterModule } from '@angular/router';
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
       {path: '', redirectTo: '/Pedido', pathMatch: 'full'}
-    ])
+    ]),
+
    ],
   providers: [],
   bootstrap: [AppComponent]
