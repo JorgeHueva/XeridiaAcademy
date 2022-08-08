@@ -25,20 +25,16 @@
 <div class="contenedor">
 
   <mat-form-field>
-    <input matInput name="tipo_cafe" [(ngModel)]="valor1" type="text" placeholder="Ingrese tipo de cafe">
+    <input matInput name="tipo_cafe" [(ngModel)]="articuloselect.tipo" type="text" placeholder="Ingrese tipo de cafe">
   </mat-form-field>
 
   <mat-form-field>
-      <input matInput name="numero" [(ngModel)]="valor2" type="number" placeholder="Ingrese numero de cafes">
+      <input matInput name="numero" [(ngModel)]="articuloselect.numero" type="number" placeholder="Ingrese numero de cafes">
   </mat-form-field>
 
   <mat-radio-group name="opciones" [(ngModel)]="operacionSeleccionada">
-    <mat-radio-button *ngFor="let op of tipoOperaciones" name="opciones" [value]="op"  style="margin: 10px">
-      {{op}}
-    </mat-radio-button>
+    <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
   </mat-radio-group>
-
-  <button mat-raised-button color="primary" (click)="operar()">Para donde es su pedido</button>
   <p>{{resultado}}</p>
 
 </div>

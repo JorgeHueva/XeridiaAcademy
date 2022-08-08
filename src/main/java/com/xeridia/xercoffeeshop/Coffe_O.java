@@ -12,13 +12,13 @@ import javax.persistence.Table;
     public class Coffe_O {
 
         @Id
-        @Column(name = "Type_Coffe", length = 150)
+        @Column(name = "Type_Coffe", nullable = false,length = 150)
         private String typeCoffe_O;
 
-        @Column(name = "num_Coffe")
+        @Column(name = "num_Coffe", nullable = false)
         private double num_Coffe;
 
-        @Column(name = "Price")
+        @Column(name = "Price", nullable = false)
         private double price;
 
         public String getTypeCoffe_O() {
