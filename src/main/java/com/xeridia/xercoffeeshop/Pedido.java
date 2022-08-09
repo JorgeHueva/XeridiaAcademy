@@ -14,9 +14,10 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int order_id;
 
+    @Column(name = "regist_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "REGIST_DATE")
     private Calendar registDate;
+
 
     public int getOrder_id() {
         return order_id;

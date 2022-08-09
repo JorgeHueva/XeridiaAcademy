@@ -21,6 +21,9 @@ import javax.persistence.Table;
         @Column(name = "Price", nullable = false)
         private double price;
 
+        @Column(name = "order_id")
+        private double order_id;
+
         public String getTypeCoffe_O() {
             return typeCoffe_O;
         }
@@ -43,6 +46,14 @@ import javax.persistence.Table;
 
         public void setPrice(double price) {
             this.price = price;
+        }
+
+        public double getOrder_id() {
+            return order_id;
+        }
+
+        public void setOrder_id(double order_id) {
+            this.order_id = order_id;
         }
     }
 
