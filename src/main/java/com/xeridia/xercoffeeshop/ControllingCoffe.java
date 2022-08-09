@@ -34,7 +34,7 @@ public class ControllingCoffe {
        return "Saved";
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping(path = "/agrega")
     public @ResponseBody String addNewPedido (){
 
         Pedido p = new Pedido();

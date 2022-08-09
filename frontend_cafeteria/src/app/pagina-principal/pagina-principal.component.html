@@ -1,4 +1,4 @@
-<mat-form-field>
+<!--mat-form-field>
   <mat-label>Buscar</mat-label>
   <input matInput (keyup)="filtrar($event)" placeholder="buscar">
 </mat-form-field>
@@ -25,7 +25,7 @@
     <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
-</div>
+</div-->
 
 <div class ="contenedor">
   <table class="table table-striped">
@@ -55,7 +55,7 @@
       <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number" placeholder="Ingrese numero de cafes">
   </mat-form-field>
   <br>
-  <button class="btn btn-success">Guardar</button>
+  <button mat-button color="primary" >Guardar</button>
 </form>
 </div>
 

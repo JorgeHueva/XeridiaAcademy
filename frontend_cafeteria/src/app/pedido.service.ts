@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coffe } from './coffe';
 import { Coffe_o } from './coffe_o';
@@ -11,6 +11,7 @@ export class PedidoService {
   // Obtengo la lista
   private baseURL = "http://localhost:8080/cafeteria/cafes";
 
+  order: Array<Coffe_o> = [];
 constructor(private httpClient : HttpClient) { }
 
 //obtengo los cafes del sql

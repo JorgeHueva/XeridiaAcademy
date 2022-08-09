@@ -7,6 +7,8 @@ import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';
 
 
+
+
 @Component({
   selector: 'app-pagina-principal',
   templateUrl: './pagina-principal.component.html',
@@ -17,20 +19,23 @@ export class PaginaPrincipalComponent implements OnInit {
   columnas: string[] = ['tipo', 'precio'];
 
   cafes: Coffe[] = [];
-  coffe_o: Coffe_o = new Coffe_o;
 
+  pedido: Array<Coffe_o> = [];
+  coffe_o: Coffe_o = new Coffe_o;
   dataSource:any;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  constructor(private pedidoServicio: PedidoService) { }
+  constructor(private pedidoServicio: PedidoService) {
+
+  }
 
   ngOnInit() {
       this.obtenerCoffe();
       this.dataSource = new MatTableDataSource<Coffe>(this.cafes);
       this.dataSource.paginator = this.paginator;
     }
-    filtrar(event: Event) {
+  filtrar(event: Event) {
       const filtro = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filtro.trim().toLowerCase();
   }
@@ -41,7 +46,12 @@ export class PaginaPrincipalComponent implements OnInit {
   }
 
   onSubmit (){
-    console.log (this.coffe_o);
+    this.coffe_o.price = 3;
+    this.pedido.push(this.coffe_o);
+    this.coffe_o = new Coffe_o;
+    this.pedidoServicio.order = this.pedido;
+    console.log (this.pedidoServicio.order);
   }
+
 }
 

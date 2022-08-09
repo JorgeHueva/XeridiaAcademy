@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatFormFieldModule,
     MatTableModule,
+
     MatPaginatorModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},

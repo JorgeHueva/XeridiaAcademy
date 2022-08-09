@@ -1,5 +1,5 @@
 export class Coffe_o {
-  typeCoffe : string;
+  typeCoffe : String;
   numCoffe: number;
   price: number;
 }

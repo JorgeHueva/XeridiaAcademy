@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Coffe } from '../coffe';
-
-
-
-
+import { Coffe_o } from '../coffe_o';
+import { Pedido } from '../Pedido';
+import { PedidoService } from '../pedido.service';
 
 @Component({
   selector: 'app-Pedido',
@@ -12,18 +11,15 @@ import { Coffe } from '../coffe';
 })
 export class PedidoComponent implements OnInit {
 
-  filas: string[] = ['Tipo', 'Numero', 'Precio', 'borrar'];
+  columnas: string[] = ['Tipo', 'Numero', 'Precio', 'borrar'];
 
-  datos: Coffe[] = [];
+  datos: Array<Coffe_o> = [];
 
-  constructor() { }
+
+  constructor(private pedidoServicio: PedidoService) { }
 
   ngOnInit() {
-    this.datos = [{
-      "typeCoffe" : "Cafe con leche",
-      "price" : 1.50
-    }];
+    this.datos = this.pedidoServicio.order;
   }
+
 }
-
-
