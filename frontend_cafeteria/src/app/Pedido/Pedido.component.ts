@@ -1,8 +1,8 @@
-import { Component, OnInit, } from '@angular/core';
-import { Coffe } from '../coffe';
+import { Component, OnInit, ViewChild, } from '@angular/core';
+import { MatTable } from '@angular/material/table';
 import { Coffe_o } from '../coffe_o';
-import { Pedido } from '../Pedido';
 import { PedidoService } from '../pedido.service';
+
 
 @Component({
   selector: 'app-Pedido',
@@ -14,9 +14,17 @@ export class PedidoComponent implements OnInit {
   columnas: string[] = ['Tipo', 'Numero', 'Precio', 'borrar'];
 
   datos: Array<Coffe_o> = [];
+  @ViewChild(MatTable) tabla1!: MatTable<Coffe_o>;
 
 
   constructor(private pedidoServicio: PedidoService) { }
+
+  borrarFila(cod: number) {
+    if (confirm("Realmente quiere borrarlo?")) {
+      this.datos.splice(cod, 1);
+      this.tabla1.renderRows();
+    }
+  }
 
   ngOnInit() {
     this.datos = this.pedidoServicio.order;
