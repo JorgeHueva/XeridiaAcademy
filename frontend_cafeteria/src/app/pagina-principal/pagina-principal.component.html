@@ -48,7 +48,13 @@
 <h3 class ="text-center">Pedido</h3>
 <form (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput name="tipo_cafe" [(ngModel)]="coffe_o.typeCoffe" type="text" placeholder="Ingrese tipo de cafe">
+    <mat-label>Cafes</mat-label>
+    <!--mat-select>
+      <mat-option *ngFor="let pedido of pedido" [value]="pedido.value">
+        {{pedido.viewValue}}
+      </mat-option>
+    </mat-select>
+    <input matInput name="tipo_cafe" [(ngModel)]="coffe_o.typeCoffe" type="text" placeholder="Ingrese tipo de cafe"-->
   </mat-form-field>
 <br>
   <mat-form-field>

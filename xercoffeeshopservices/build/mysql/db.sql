@@ -7,12 +7,13 @@ CREATE TABLE coffe_o(
     type_Coffe varchar (70),
     num_Coffe int,
     price double,
-    PRIMARY KEY (Type_Coffe)
+    order_id int,
+    PRIMARY KEY (type_Coffe,order_id)
 );
 CREATE TABLE pedido(
-    id  int,
+    order_id  int,
     regist_date date,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (order_id)
 );
 insert into coffe (Type_Coffe, Price, description )
 values ('Cafe con leche',1.50, 'consiste en una base de espresso a la cual se le añade la misma cantidad de leche');
@@ -27,4 +28,4 @@ values ('Bombon',2.50, 'se vierten 120 ml de café extraído con un método de P
 insert into coffe (Type_Coffe, Price, description)
 values ('Cafe irlandes', 3.80, 'famoso cóctel que contiene whiskey, café, azúcar y crema');
 insert into coffe (Type_Coffe, Price, description)
-values ('Cola Cao',1.80);
+values ('Cola Cao',1.80, 'delicioso cacao en polvo con nuestra leche de la mejor calidad');
