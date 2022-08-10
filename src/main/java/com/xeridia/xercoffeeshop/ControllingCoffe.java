@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -35,14 +38,14 @@ public class ControllingCoffe {
     }
 
     @PostMapping(path = "/agrega")
-    public @ResponseBody String addNewPedido (){
+    public @ResponseBody String addNewPedido (@RequestBody ArrayList<Coffe_O> order){
 
         Pedido p = new Pedido();
+        p.setOrder_id(2);
+        p.setRegistDate(LocalDate.now());
 
-        p.getOrder_id();
-        p.getRegistDate();
 
-
+        System.out.println(order.get(0).getTypeCoffe_O());
 
         pedidoRepository.save(p);
         return "Saved";

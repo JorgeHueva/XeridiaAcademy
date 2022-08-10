@@ -10,15 +10,17 @@ import { Coffe_o } from './coffe_o';
 export class PedidoService {
   // Obtengo la lista
   private baseURL = "http://localhost:8080/cafeteria/cafes";
+  private addURL = "http://localhost:8080/cafeteria/agrega";
 
   order: Array<Coffe_o> = [];
-constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient) { }
 
 //obtengo los cafes del sql
-obtenerLista (): Observable<Coffe []> {
-  return this.httpClient.get<Coffe []>(`${this.baseURL}`);
+  obtenerLista (): Observable<Coffe []> {
+    return this.httpClient.get<Coffe []>(`${this.baseURL}`);
 }
-//registrarEmpleado(coffe_o: Coffe_o) : Observable<Object>{
-  //return this.httpClient.post(`${this.baseURL}`);
-//}
+  registrarCafes(listaCafes: Array<Coffe_o>) : Observable<any>{
+    console.log (listaCafes)
+    return this.httpClient.post(`${this.addURL}`, listaCafes);
+  }
 }

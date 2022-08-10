@@ -16,7 +16,7 @@ import { PedidoComponent } from './Pedido/Pedido.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -37,8 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatFormFieldModule,
     MatTableModule,
-
     MatPaginatorModule,
+    MatSelectModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},

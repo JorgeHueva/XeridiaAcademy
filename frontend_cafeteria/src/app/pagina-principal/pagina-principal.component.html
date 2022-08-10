@@ -1,33 +1,25 @@
-<!--mat-form-field>
-  <mat-label>Buscar</mat-label>
-  <input matInput (keyup)="filtrar($event)" placeholder="buscar">
-</mat-form-field>
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="cafes" class="mat-elevation-z8" #tabla1>
 
-    <ng-container matColumnDef="tipo">
-      <th mat-header-cell *matHeaderCellDef> Tipo </th>
-      <tr *ngFor= "let cafe of cafes">
-        <td>{{cafe.typeCoffe}}</td>
-      </tr>
-    </ng-container>
+  <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+    <td mat-cell *matCellDef="let cafes"> {{cafes.typeCoffe}} </td>
+  </ng-container>
 
+  <ng-container matColumnDef="precio">
+    <th mat-header-cell *matHeaderCellDef> Precio </th>
+    <td mat-cell *matCellDef="let cafes"> {{cafes.price}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="precio">
-      <th mat-header-cell *matHeaderCellDef> Precio </th>
-      <tr *ngFor= "let cafe of cafes">
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef> Descripcion del producto </th>
+    <td mat-cell *matCellDef="let cafes"> {{cafes.description}} </td>
+  </ng-container>
 
-        <td>{{cafe.price}}</td>
-      </tr>
-    </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+</table>
 
-    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
-</div-->
-
-<div class ="contenedor">
+<!--div class ="contenedor">
   <table class="table table-striped">
     <thead class="table-dark">
       <tr>
@@ -42,26 +34,25 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div-->
 
 <div class="col-md-6 offset-md-3">
-<h3 class ="text-center">Pedido</h3>
-<form (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Cafes</mat-label>
-    <!--mat-select>
-      <mat-option *ngFor="let pedido of pedido" [value]="pedido.value">
-        {{pedido.viewValue}}
-      </mat-option>
-    </mat-select>
-    <input matInput name="tipo_cafe" [(ngModel)]="coffe_o.typeCoffe" type="text" placeholder="Ingrese tipo de cafe"-->
-  </mat-form-field>
-<br>
-  <mat-form-field>
-      <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number" placeholder="Ingrese numero de cafes">
-  </mat-form-field>
+  <h3 class ="text-center">Pedido</h3>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Cafes</mat-label>
+        <mat-select placeholder="Operaciones" [(ngModel)]="coffe_o.typeCoffe" name="operacion">
+          <mat-option *ngFor="let op of cafes" [value]="op.typeCoffe">
+            {{op.typeCoffe}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
   <br>
-  <button mat-button color="primary"  >Guardar</button>
-</form>
+    <mat-form-field>
+        <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number" placeholder="Ingrese numero de cafes">
+    </mat-form-field>
+    <br>
+    <button class="btn btn-success">Guardar</button>
+  </form>
 </div>
 

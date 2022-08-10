@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 
 
@@ -16,15 +17,14 @@ import { Coffe_o } from '../coffe_o';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
-  columnas: string[] = ['tipo', 'precio'];
-
+  columnas: string[] = ['tipo', 'precio', 'descripcion'];
   cafes: Coffe[] = [];
 
-  pedido: Array<Coffe_o> = [];
+  pedido: Array<Coffe_o> = this.pedidoServicio.order;
   coffe_o: Coffe_o = new Coffe_o;
   dataSource:any;
 
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatTable) tabla2!: MatTable<Coffe_o>;
 
   constructor(private pedidoServicio: PedidoService) {
 
@@ -32,9 +32,8 @@ export class PaginaPrincipalComponent implements OnInit {
 
   ngOnInit() {
       this.obtenerCoffe();
-      this.dataSource = new MatTableDataSource<Coffe>(this.cafes);
-      this.dataSource.paginator = this.paginator;
     }
+
   filtrar(event: Event) {
       const filtro = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filtro.trim().toLowerCase();
@@ -43,14 +42,19 @@ export class PaginaPrincipalComponent implements OnInit {
     this.pedidoServicio.obtenerLista().subscribe(dato => {
       this.cafes = dato;
     } )
+
   }
 
   onSubmit (){
-    this.coffe_o.price = 3;
+    for (let i = 0; i < this.cafes.length; i++){
+      if (this.cafes[i].typeCoffe == this.coffe_o.typeCoffe){
+        this.coffe_o.price = this.cafes[i].price * this.coffe_o.numCoffe;
+      }
+    }
+    //this.coffe_o.price = 3;
     this.pedido.push(this.coffe_o);
     this.coffe_o = new Coffe_o;
     this.pedidoServicio.order = this.pedido;
-    console.log (this.pedidoServicio.order);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Coffe_o } from '../coffe_o';
 import { PedidoService } from '../pedido.service';
 
@@ -17,13 +18,23 @@ export class PedidoComponent implements OnInit {
   @ViewChild(MatTable) tabla1!: MatTable<Coffe_o>;
 
 
-  constructor(private pedidoServicio: PedidoService) { }
+  constructor(private pedidoServicio: PedidoService, private router: Router) { }
 
   borrarFila(cod: number) {
     if (confirm("Realmente quiere borrarlo?")) {
       this.datos.splice(cod, 1);
       this.tabla1.renderRows();
     }
+  }
+
+  guardarCafes(){
+    this.pedidoServicio.registrarCafes(this.datos);
+    this.reinicioLista ();
+  }
+
+  reinicioLista (){
+    console.log('Buenos dias buen hombre me quiero reiniciar')
+    this.pedidoServicio.order = [];
   }
 
   ngOnInit() {

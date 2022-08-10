@@ -1,6 +1,8 @@
 package com.xeridia.xercoffeeshop;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 
@@ -11,12 +13,10 @@ public class Pedido {
 
     @Id
     @Column(name = "order_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int order_id;
 
     @Column(name = "regist_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar registDate;
+    private LocalDate registDate;
 
 
     public int getOrder_id() {
@@ -27,11 +27,11 @@ public class Pedido {
         this.order_id = order_id;
     }
 
-    public Calendar getRegistDate() {
+    public LocalDate getRegistDate() {
         return registDate;
     }
 
-    public void setRegistDate(Calendar registDate) {
+    public void setRegistDate(LocalDate registDate) {
         this.registDate = registDate;
     }
 }
