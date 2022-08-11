@@ -1,4 +1,10 @@
+<p>
+  <mat-toolbar>
+    <span>{{title}}</span>
+  </mat-toolbar>
+</p>
 
+<!-- -->
 <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <div class="menu">
 <mat-menu #menu="matMenu">
@@ -6,11 +12,27 @@
     <a mat-menu-item class ="button" routerLink="/Pedido" routerLinkActive="click">Pedidos</a>
     <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton">Cafeteria</a>
   </nav>
-
 </mat-menu>
 </div>
-<h1 class = "titulo">{{title}}</h1>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
+<!--
+  <nav class="navbar navbar-expands-sm bg-dark navbar-dark">
+  <ul class="navbar-ul">
+    <li class="nav-item">
+        <a routerLink="Pedido" routerLinkActive="active" class="nav-link">Pedidos</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="pagina-principal" routerLinkActive="active" class="nav-link">Pagina principal</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="/agregar-cafe" routerLinkActive="active" class="nav-link">Agregar</a>
+</li>
+  </ul>
+</nav>
+-->
+
 

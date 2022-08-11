@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild, } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { Coffe_o } from '../coffe_o';
 import { PedidoService } from '../pedido.service';
-
 
 
 @Component({
@@ -30,11 +28,12 @@ export class PedidoComponent implements OnInit {
   }
 
   guardarCafes(){
-    this.pedidoServicio.registrarCafes(this.datos).subscribe();
+    this.pedidoServicio.registrarCafes(this.datos);
     this.reinicioLista ();
   }
 
   reinicioLista (){
+    console.log('Buenos dias buen hombre me quiero reiniciar')
     this.pedidoServicio.order = [];
   }
 

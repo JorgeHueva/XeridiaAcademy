@@ -17,8 +17,8 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
-
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -36,9 +36,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatTableModule,
+    MatTableModule,MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
     MatPaginatorModule,
-    MatSelectModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
