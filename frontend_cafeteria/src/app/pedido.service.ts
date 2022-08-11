@@ -20,7 +20,6 @@ export class PedidoService {
     return this.httpClient.get<Coffe []>(`${this.baseURL}`);
 }
   registrarCafes(listaCafes: Array<Coffe_o>) : Observable<any>{
-    console.log (listaCafes)
-    return this.httpClient.post(`${this.addURL}`, listaCafes);
-  }
+    return this.httpClient.post(`${this.addURL}`, listaCafes, {responseType: 'text'});
+}
 }

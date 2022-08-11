@@ -46,12 +46,14 @@ export class PaginaPrincipalComponent implements OnInit {
   }
 
   onSubmit (){
+    for (let i = 0; i < this.pedido.length; i++){
+
+    }
     for (let i = 0; i < this.cafes.length; i++){
       if (this.cafes[i].typeCoffe == this.coffe_o.typeCoffe){
         this.coffe_o.price = this.cafes[i].price * this.coffe_o.numCoffe;
       }
     }
-    //this.coffe_o.price = 3;
     this.pedido.push(this.coffe_o);
     this.coffe_o = new Coffe_o;
     this.pedidoServicio.order = this.pedido;

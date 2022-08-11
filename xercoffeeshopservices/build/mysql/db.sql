@@ -1,14 +1,15 @@
 CREATE TABLE coffe(
-    type_Coffe varchar (70) NOT NULL,
+    type_coffe varchar (70) NOT NULL,
     price double NOT NULL,
-    description text
+    description text,
+    PRIMARY KEY (type_coffe)
 );
 CREATE TABLE coffe_o(
-    type_Coffe varchar (70),
-    num_Coffe int,
+    type_coffe varchar (70) NOT NULL,
+    num_coffe int,
     price double,
-    order_id int,
-    PRIMARY KEY (type_Coffe,order_id)
+    order_id  int,
+    PRIMARY KEY (order_id,type_coffe)
 );
 CREATE TABLE pedido(
     order_id  int,
