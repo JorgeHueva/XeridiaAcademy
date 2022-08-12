@@ -3,9 +3,20 @@
     <span>{{title}}</span>
   </mat-toolbar>
 </p>
+<!-- <button mat-icon-button color="primary" aria-label="Example icon button with a open in new tab icon">
+Test
+</button>
+<mat-toolbar>
+  <nav>
+    <a mat-menu-item class ="button" routerLink="/Pedido" routerLinkActive="click">Pedidos</a>
+    <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton">Cafeteria</a>
+  </nav>
+</mat-toolbar>-->
 
-<!-- -->
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+
+<button mat-button [matMenuTriggerFor]="menu">Menu
+</button>
+<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
 <div class="menu">
 <mat-menu #menu="matMenu">
   <nav>
@@ -16,23 +27,9 @@
 </div>
 
 <div class="container">
+  
   <router-outlet></router-outlet>
 </div>
 
-<!--
-  <nav class="navbar navbar-expands-sm bg-dark navbar-dark">
-  <ul class="navbar-ul">
-    <li class="nav-item">
-        <a routerLink="Pedido" routerLinkActive="active" class="nav-link">Pedidos</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="pagina-principal" routerLinkActive="active" class="nav-link">Pagina principal</a>
-  </li>
-  <li class="nav-item">
-    <a routerLink="/agregar-cafe" routerLinkActive="active" class="nav-link">Agregar</a>
-</li>
-  </ul>
-</nav>
--->
 
 
