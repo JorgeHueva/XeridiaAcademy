@@ -1,0 +1,30 @@
+<p>
+  <mat-toolbar>
+    <span>{{title}}</span>
+  </mat-toolbar>
+</p>
+
+<p>
+  <mat-toolbar>
+   <button mat-icon-button color="primary" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>MENU</span>
+</mat-toolbar>
+</p>
+
+<div class="menu">
+<mat-menu #menu="matMenu">
+  <nav>
+    <a mat-menu-item class ="button" routerLink="/Pedido" routerLinkActive="click">Pedidos</a>
+    <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton">Cafeteria</a>
+  </nav>
+</mat-menu>
+</div>
+
+<div class="container">
+  
+  <router-outlet></router-outlet>
+</div>
+
+
