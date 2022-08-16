@@ -28,13 +28,9 @@
   <ng-container matColumnDef="imagen">
     <th mat-header-cell *matHeaderCellDef> Imagen </th>
     <td mat-cell *matCellDef="let cafes">
-      <img width="100" height="100" src="https://okdiario.com/img/2021/10/01/intensidad-cafe-655x368.jpg" />
     </td>
 
   </ng-container>
-
-
-
   <tr mat-header-row *matHeaderRowDef="columnas"></tr>
   <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
 </table>
@@ -45,41 +41,22 @@
 <br>
 <br>
 
-
 <div class="col-md-6 offset-md-3">
-
   <h3 class ="text-center">Pedido</h3>
-
   <form (ngSubmit)="onSubmit()">
-
     <mat-form-field>
-
       <mat-label>Cafes</mat-label>
-
         <mat-select placeholder="Operaciones" [(ngModel)]="coffe_o.typeCoffe" name="operacion">
-
           <mat-option *ngFor="let op of cafes" [value]="op.typeCoffe">
-
             {{op.typeCoffe}}
-
           </mat-option>
-
         </mat-select>
-
     </mat-form-field>
-
   <br>
-
     <mat-form-field>
-
         <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number" placeholder="Ingrese numero de cafes" min = "1">
-
     </mat-form-field>
-
     <br>
-
     <button class="btn btn-success">Guardar</button>
-
   </form>
-
 </div>

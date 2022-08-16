@@ -1,10 +1,11 @@
 package com.xeridia.xercoffeeshop;
 
-import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.util.Calendar;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 
 @Entity
@@ -12,18 +13,28 @@ import java.util.Calendar;
 public class Pedido {
 
     @Id
-    @Column(name = "order_id")
-    private int order_id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long order_id;
 
     @Column(name = "regist_date", nullable = false)
     private LocalDate registDate;
 
+    @OneToMany(mappedBy = "pedido", orphanRemoval = true)
+    private Set<Coffe_O> coffe_oes = new LinkedHashSet<>();
 
-    public int getOrder_id() {
+    public Set<Coffe_O> getCoffe_oes() {
+        return coffe_oes;
+    }
+
+    public void setCoffe_oes(Set<Coffe_O> coffe_oes) {
+        this.coffe_oes = coffe_oes;
+    }
+
+    public Long getOrder_id() {
         return order_id;
     }
 
-    public void setOrder_id(int order_id) {
+    public void setOrder_id(Long order_id) {
         this.order_id = order_id;
     }
 

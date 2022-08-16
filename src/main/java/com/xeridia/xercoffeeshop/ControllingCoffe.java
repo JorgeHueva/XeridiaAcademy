@@ -25,17 +25,22 @@ public class ControllingCoffe {
     private List<Coffe> coffe;
     @Autowired
     private PedidoRepository pedidoRepository;
-    int num = 0;
 
-    public String addNewCoffe_O (String Type_Coffe, int num_Coffe, double Price, int order_id){
+    Long num = Long.valueOf(0);
+
+    public String addNewCoffe_O (String Type_Coffe, int num_Coffe, double Price, Long num){
 
         Coffe_O c = new Coffe_O();
 
-       c.setTypeCoffe_O(Type_Coffe);
-       c.setNum_Coffe(num_Coffe);
-       c.setPrice(Price);
-       c.setOrder_id(order_id);
-       coffe_oRepository.save(c);
+        Optional<Coffe> optionalCoffe = repository.findById(Type_Coffe);
+        Optional<Pedido> optionalOrder = pedidoRepository.findById(num);
+        if (optionalCoffe.isPresent() && optionalOrder.isPresent()) {
+            c.setCoffe(optionalCoffe.get());
+            c.setNum_Coffe(num_Coffe);
+            c.setPrice(Price);
+            c.setPedido(optionalOrder.get());
+            coffe_oRepository.save(c);
+        }
        return "Saved";
     }
 
@@ -43,28 +48,29 @@ public class ControllingCoffe {
     public @ResponseBody String addNewPedido (@RequestBody(required=false) ArrayList<Object> order){
 
         Pedido p = new Pedido();
-        List o = (List) pedidoRepository.findAll();
+
         String typeCoffe;
         int numCoffe;
         double price;
 
-        if (!o.isEmpty()){
-            num = o.size()+1;
-        }
-
-        p.setOrder_id(num);
         p.setRegistDate(LocalDate.now());
+        pedidoRepository.save(p);
+        num = p.getOrder_id();
+
 
         if (!order.isEmpty()){
             for (int i=0; i < order.size() ;i++){
                 typeCoffe = (String) ((LinkedHashMap) order.get(i)).get("typeCoffe");
                 numCoffe = (int) ((LinkedHashMap) order.get(i)).get("numCoffe");
-                price = (double) ((LinkedHashMap) order.get(i)).get("price");
+                if (((LinkedHashMap) order.get(i)).get("price").getClass().isInstance(Double.valueOf(0.00))){
+                    price = (double) ((LinkedHashMap) order.get(i)).get("price");
+                }else {
+                    price = ((Integer) ((LinkedHashMap) order.get(i)).get("price")).doubleValue();
+                }
                 this.addNewCoffe_O(typeCoffe,numCoffe,price,num);
             }
         }
         num ++;
-        pedidoRepository.save(p);
         return "Saved";
     }
 

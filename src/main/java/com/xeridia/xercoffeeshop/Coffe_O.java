@@ -1,34 +1,62 @@
 package com.xeridia.xercoffeeshop;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
+import javax.persistence.*;
+
 @Entity
 @Table(name = "Coffe_O")
 public class Coffe_O {
 
     @Id
-    @Column(name = "Type_Coffe", nullable = false,length = 150)
-    private String typeCoffe_O;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "coffe_type_coffe", referencedColumnName = "type_coffe")
+    private Coffe coffe;
+
     @Column(name = "num_Coffe", nullable = false)
-    private double num_Coffe;
+    private int  num_Coffe;
     @Column(name = "Price", nullable = false)
     private double price;
-    @Column(name = "order_id")
-    private double order_id;
-    public String getTypeCoffe_O() {
-        return typeCoffe_O;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "pedido_order_id", referencedColumnName = "order_id")
+    private Pedido pedido;
+
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setTypeCoffe_O(String typeCoffe_O) {
-        this.typeCoffe_O = typeCoffe_O;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
-    public double getNum_Coffe() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Coffe getCoffe() {
+        return coffe;
+    }
+
+    public void setCoffe(Coffe coffe) {
+        this.coffe = coffe;
+    }
+
+    public int getNum_Coffe() {
         return num_Coffe;
     }
 
-    public void setNum_Coffe(double num_Coffe) {
+    public void setNum_Coffe(int num_Coffe) {
         this.num_Coffe = num_Coffe;
     }
 
@@ -40,12 +68,5 @@ public class Coffe_O {
         this.price = price;
     }
 
-    public double getOrder_id() {
-        return order_id;
-    }
-
-    public void setOrder_id(double order_id) {
-        this.order_id = order_id;
-    }
 }
 

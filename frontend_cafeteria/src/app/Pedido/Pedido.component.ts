@@ -28,7 +28,7 @@ export class PedidoComponent implements OnInit {
   }
 
   guardarCafes(){
-    this.pedidoServicio.registrarCafes(this.datos);
+    this.pedidoServicio.registrarCafes(this.datos).subscribe();
     this.reinicioLista ();
   }
 
