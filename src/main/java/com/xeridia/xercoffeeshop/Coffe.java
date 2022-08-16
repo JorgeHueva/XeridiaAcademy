@@ -18,6 +18,9 @@ public class Coffe  {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "imagen")
+    private String imagen;
+
     @OneToMany(mappedBy = "coffe", orphanRemoval = true)
     private Set<Coffe_O> coffe_oes = new LinkedHashSet<>();
 
@@ -52,5 +55,13 @@ public class Coffe  {
         public void setDescription(String description) {
             this.description = description;
         }
-    }
+
+        public String getImagen() {
+         return imagen;
+         }
+
+        public void setImagen(String imagen) {
+            this.imagen = imagen;
+        }
+}
 
