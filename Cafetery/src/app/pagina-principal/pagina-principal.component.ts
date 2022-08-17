@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { FormControl, FormGroup } from '@angular/forms';
+
 import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';
@@ -55,32 +55,33 @@ export class PaginaPrincipalComponent implements OnInit {
   }
 
   onSubmit (){
-  this.contador = 0;
+    this.contador = 0;
 
     for (let i = 0; i < this.pedido.length; i++){
       if (this.pedido[i].typeCoffe == this.coffe_o.typeCoffe){
         this.pedido[i].price =  (this.pedido[i].price)/this.pedido[i].numCoffe;
         this.pedido[i].numCoffe = this.pedido[i].numCoffe + this.coffe_o.numCoffe;
         this.pedido[i].price =  (this.pedido[i].price)*this.pedido[i].numCoffe;
+        this.coffe_o.price = Number(this.coffe_o.price.toFixed(2));
         this.contador = 1;
-        break;
-      } 
-    }
-  if(this.contador != 1)  {
-    for (let i = 0; i < this.cafes.length; i++){
-      if (this.cafes[i].typeCoffe == this.coffe_o.typeCoffe){
-        this.coffe_o.price = this.cafes[i].price * this.coffe_o.numCoffe;
-        this.contador = 2;
         break;
       }
     }
-  }
-  
-    if(this.contador == 2){
+    if(this.contador != 1)  {
+      for (let i = 0; i < this.cafes.length; i++){
+        if (this.cafes[i].typeCoffe == this.coffe_o.typeCoffe){
+          this.coffe_o.price = this.cafes[i].price * this.coffe_o.numCoffe;
+          this.coffe_o.price = Number(this.coffe_o.price.toFixed(2));
+          this.contador = 2;
+          break;
+        }
+      }
+    }
+
+    if(this.contador == 2 && this.coffe_o.numCoffe > 0){
       this.pedido.push(this.coffe_o);
     }
-  
-  
+
     this.coffe_o = {numCoffe: 0, price:0, typeCoffe:""};
     this.pedidoServicio.order = this.pedido;
   }

@@ -19,17 +19,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 
 
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     PedidoComponent,
     PaginaPrincipalComponent,
-    DialogBoxComponent
    ],
   imports: [
     HttpClientModule,
