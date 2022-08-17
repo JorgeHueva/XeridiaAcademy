@@ -21,10 +21,10 @@ export class PaginaPrincipalComponent implements OnInit {
 
   pedido: Array<Coffe_o> = this.pedidoServicio.order;
   coffe_o: Coffe_o = {numCoffe: 0, price:0, typeCoffe:""};
-  //dataSource = new MatTableDataSource<Coffe>(this.cafes);
+  
   dataSource:any;
 
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
+ 
    @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
    ngAfterViewInit() {

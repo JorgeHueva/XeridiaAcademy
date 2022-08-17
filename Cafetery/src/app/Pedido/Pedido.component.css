@@ -1,3 +1,9 @@
+h2{
+  text-align: center;
+  font-family: fantasy;
+  color: white;
+  font-size: x-large;
+}
 table {
   width: 90%;
   margin:1rem auto;
@@ -21,8 +27,10 @@ th {
   vertical-align: auto !important;
 }
 
+
+
 button {
-  background-color: #4CAF50;
+  background-color: green;
   border: none;
   color: white;
   padding: 8px 10px;
@@ -33,3 +41,30 @@ button {
   margin: 4px 2px;
   cursor: pointer;
 }
+
+button.delete {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button.update {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+

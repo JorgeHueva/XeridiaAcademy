@@ -1,10 +1,25 @@
 
 .titulo {
+  
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
+  color: white;
   border: none;
   margin: auto;
 }
 h1{
+  color: white;
   text-align: center;
 }
+
+.mat-toolbar.menu{
+  background-color:#40241a ;
+  justify-content: left;
+  color: white;
+}
+
+.mat-toolbar{
+  justify-content: center;
+  background-color:#40241a ;
+  color: white;
+}
+

@@ -46,10 +46,12 @@ export class PedidoComponent implements OnInit {
 
   updateRowData(row_obj: { typeCoffe: String; numCoffe: number; }){
     this.datos = this.datos.filter((value,key)=>{
-      if(value.typeCoffe == row_obj.typeCoffe){
+      if(value.typeCoffe == row_obj.typeCoffe && row_obj.numCoffe > 0){
         value.price = value.price/value.numCoffe;
         value.numCoffe = row_obj.numCoffe;
         value.price = row_obj.numCoffe*value.price;
+        value.price = Number(value.price.toFixed(2));
+        value.numCoffe = Number(value.numCoffe);
       }
       return true;
     });
@@ -73,13 +75,3 @@ export class PedidoComponent implements OnInit {
   }
 
 }
-
-
-/*
-  borrarFila(cod: number) {
-    if (confirm("Realmente quiere borrarlo?")) {
-      this.datos.splice(cod, 1);
-      this.tabla1.renderRows();
-    }
-  }
-*/

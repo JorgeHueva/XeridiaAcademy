@@ -1,8 +1,11 @@
+div{
+  background-image: url("https://s03.s3c.es/imag/_v0/770x420/e/8/a/490x_cafe.jpg");
+}
 
 table {
   border-collapse: collapse;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   text-align: center;
 }
 
@@ -13,21 +16,7 @@ img{
   object-fit: cover;
 }
 
-.mat-column-imagen{
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 8% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 
-  word-break: break-word;
-
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
 
 td {
   font-size: medium;
@@ -41,12 +30,12 @@ th {
   color: black ;
   text-align: center !important;
   vertical-align: auto !important;
-  background-color: #EAC46B  ;
+  background-color: #9c786c ;
 }
 
 
 h3 {
-  color: rgb(50,50,50);
+  color: white;
   text-decoration: none;
   text-align: center;
  }
@@ -63,11 +52,6 @@ h3 {
   margin: 4px 2px;
   cursor: pointer;
 }
-h3 {
-  color: rgb(50,50,50);
-  text-decoration: none;
-  text-align: center;
- }
 
  form{
   width: 100%;
@@ -77,5 +61,9 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
  }
 
+ .mat-form-field{
+  color: white;
+ }
