@@ -62,7 +62,7 @@ export class PaginaPrincipalComponent implements OnInit {
         this.pedido[i].price =  (this.pedido[i].price)/this.pedido[i].numCoffe;
         this.pedido[i].numCoffe = this.pedido[i].numCoffe + this.coffe_o.numCoffe;
         this.pedido[i].price =  (this.pedido[i].price)*this.pedido[i].numCoffe;
-        this.coffe_o.price = Number(this.coffe_o.price.toFixed(2));
+        this.pedido[i].price = Number(this.pedido[i].price.toFixed(2));
         this.contador = 1;
         break;
       }

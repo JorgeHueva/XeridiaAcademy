@@ -1,17 +1,35 @@
 table {
   width: 90%;
   margin:1rem auto;
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+td {
+  font-size: medium;
+  text-align: center !important;
+  vertical-align: auto !important;
+  
+}
+
+th {
+  font-size: medium;
+  color: black ;
+  text-align: center !important;
+  vertical-align: auto !important;
 }
 
 button {
   background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 8px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
 }
