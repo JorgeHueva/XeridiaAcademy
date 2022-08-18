@@ -1,5 +1,8 @@
-div{
-  background-image: url("https://s03.s3c.es/imag/_v0/770x420/e/8/a/490x_cafe.jpg");
+.fondo{
+  background-image: url("https://img.freepik.com/foto-gratis/vista-superior-granos-cafe-frescos-aislados-sobre-fondo-blanco-espacio-copia_141793-25421.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 table {
@@ -16,8 +19,6 @@ img{
   object-fit: cover;
 }
 
-
-
 td {
   font-size: medium;
   text-align: center !important;
@@ -32,7 +33,6 @@ th {
   vertical-align: auto !important;
   background-color: #9c786c ;
 }
-
 
 h3 {
   color: white;
@@ -66,4 +66,14 @@ h3 {
 
  .mat-form-field{
   color: white;
+ }
+
+ .celda-descripcion{
+  display: flex;
+  justify-content: center;
+ }
+
+ .descripcion{
+  width: 60%;
+  text-align: left;
  }

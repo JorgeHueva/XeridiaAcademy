@@ -21,34 +21,38 @@ export class PaginaPrincipalComponent implements OnInit {
 
   pedido: Array<Coffe_o> = this.pedidoServicio.order;
   coffe_o: Coffe_o = {numCoffe: 0, price:0, typeCoffe:""};
-  
-  dataSource:any;
+  dataSource = new MatTableDataSource<Coffe>();
 
- 
-   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-
-   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   constructor(private pedidoServicio: PedidoService) {}
 
-
   ngOnInit() {
-      this.obtenerCoffe();
-
-      this.dataSource = new MatTableDataSource<Coffe>(this.cafes);
       this.dataSource.paginator = this.paginator;
-    }
+      this.obtenerCoffe();
+      this.filterTable();
+  }
 
+  filterTable() {
 
-    filtrar(event: Event) {
-      const filtro = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filtro.trim().toLowerCase();
+    this.dataSource.filterPredicate = (data: Coffe, filter: string): boolean => {
+
+      return (
+
+        data.typeCoffe.toLocaleLowerCase().includes(filter)
+
+      )
     }
+  }
+
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase();
+  }
 
   private obtenerCoffe (){
     this.pedidoServicio.obtenerLista().subscribe(dato => {
+      this.dataSource.data = dato;
       this.cafes = dato;
 
     } )

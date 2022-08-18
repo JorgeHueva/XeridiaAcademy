@@ -1,6 +1,6 @@
 
 .titulo {
-  
+
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   border: none;
@@ -10,6 +10,9 @@ h1{
   color: white;
   text-align: center;
 }
+span {
+  display:block;
+  }
 
 .mat-toolbar.menu{
   background-color:#40241a ;

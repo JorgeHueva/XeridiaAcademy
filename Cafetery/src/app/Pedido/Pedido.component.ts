@@ -56,7 +56,7 @@ export class PedidoComponent implements OnInit {
       return true;
     });
   }
-  
+
   deleteRowData(row_obj: { typeCoffe: String; numCoffe: number; }){
     this.datos = this.datos.filter((value,key)=>{
       return value.typeCoffe != row_obj.typeCoffe;

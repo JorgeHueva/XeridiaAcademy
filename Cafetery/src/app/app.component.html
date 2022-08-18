@@ -1,6 +1,6 @@
 <div>
 <p>
-  <mat-toolbar>
+  <mat-toolbar style="align-items: centre;">
     <span>{{title}}</span>
   </mat-toolbar>
 </p>
@@ -17,13 +17,13 @@
 <mat-menu #menu="matMenu">
   <nav>
     <a mat-menu-item class ="button" routerLink="/Pedido" routerLinkActive="click">Pedidos</a>
-    <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton">Cafeteria</a>
+    <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton">Mis Productos</a>
   </nav>
 </mat-menu>
 </div>
 
 <div class="container">
-  
+
   <router-outlet></router-outlet>
 </div>
 </div>

@@ -21,6 +21,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatSortModule } from '@angular/material/sort';
+import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripcion-cafeteria.component';
+
 
 
 
@@ -32,7 +35,8 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     AppComponent,
     PedidoComponent,
     PaginaPrincipalComponent,
-      DialogBoxComponent
+      DialogBoxComponent,
+      DescripcionCafeteriaComponent
    ],
   imports: [
     HttpClientModule,
@@ -49,6 +53,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatIconModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatSortModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
