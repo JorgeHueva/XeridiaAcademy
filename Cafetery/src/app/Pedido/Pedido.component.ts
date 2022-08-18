@@ -22,8 +22,9 @@ export class PedidoComponent implements OnInit {
   datos: Array<Coffe_o> = [];
 
   datasource = this.datos;
+  total: number = 0;
 
-  //@ViewChild(MatTable) tabla1!: MatTable<Coffe_o>;
+
   @ViewChild(MatTable,{static:true}) tabla1!: MatTable<Coffe_o>;
 
   constructor(public dialog: MatDialog, private pedidoServicio: PedidoService, private router: Router) { }
@@ -52,6 +53,7 @@ export class PedidoComponent implements OnInit {
         value.price = row_obj.numCoffe*value.price;
         value.price = Number(value.price.toFixed(2));
         value.numCoffe = Number(value.numCoffe);
+        this.sumarTotal();
       }
       return true;
     });
@@ -70,8 +72,15 @@ export class PedidoComponent implements OnInit {
   reinicioLista (){
     this.pedidoServicio.order = [];
   }
+  sumarTotal(){
+    this.total = 0;
+    for (let i = 0; i < this.datos.length; i++){
+      this.total = this.total + this.datos[i].price;
+    }
+  }
   ngOnInit() {
     this.datos = this.pedidoServicio.order;
+    this.sumarTotal();
   }
 
 }

@@ -25,13 +25,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripcion-cafeteria.component';
 
 
-
-
-
-
-
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     PedidoComponent,
     PaginaPrincipalComponent,
@@ -57,7 +52,8 @@ import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripci
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
-      {path: '', redirectTo: '/Pedido', pathMatch: 'full'}
+      {path: 'descripcion-cafeteria', component:DescripcionCafeteriaComponent},
+      {path: '', redirectTo: '/descripcion-cafeteria', pathMatch: 'full'}
     ]),
 
    ],

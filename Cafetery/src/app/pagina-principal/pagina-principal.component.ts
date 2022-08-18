@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-
 import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';

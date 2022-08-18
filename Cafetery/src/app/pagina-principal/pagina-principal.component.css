@@ -40,7 +40,7 @@ h3 {
   text-align: center;
  }
 
- button {
+button {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -53,7 +53,7 @@ h3 {
   cursor: pointer;
 }
 
- form{
+form{
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -64,16 +64,20 @@ h3 {
   color: white;
  }
 
- .mat-form-field{
+.mat-form-field{
   color: white;
  }
 
- .celda-descripcion{
+.celda-descripcion{
   display: flex;
   justify-content: center;
  }
 
- .descripcion{
+.descripcion{
   width: 60%;
   text-align: left;
+ }
+
+ .buscador{
+  margin-left: 0.5%;
  }

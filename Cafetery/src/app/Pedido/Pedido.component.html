@@ -23,13 +23,13 @@
     <td mat-cell *matCellDef="let datos" class="action-link">
       <button mat-raised-button class="update">
         <mat-icon> edit </mat-icon>
-         <a (click)="openDialog('Update',datos)">Edit</a>  
-              </button> 
-      <button mat-raised-button class = "delete"> 
+         <a (click)="openDialog('Update',datos)">Edit</a>
+              </button>
+      <button mat-raised-button class = "delete">
         <mat-icon> delete </mat-icon>
-        <a (click)="openDialog('Delete',datos)">Delete</a>  
-      </button> 
-      
+        <a (click)="openDialog('Delete',datos)">Delete</a>
+      </button>
+
     </td>
   </ng-container>
 
@@ -37,6 +37,10 @@
   <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
 </table>
 
-<div style="text-align: right">
+<div class="confirmar" style="text-align: right">
   <button mat-button (click)="guardarCafes()" >Confirmar</button>
+</div>
+
+<div class="total">
+  <p class="total-precio">Total: {{total}}</p>
 </div>
