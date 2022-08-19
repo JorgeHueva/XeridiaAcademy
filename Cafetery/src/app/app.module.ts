@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +24,9 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { MatSortModule } from '@angular/material/sort';
 import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripcion-cafeteria.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RegistroComponent } from './registro/registro.component';
+import {MatStepperModule} from '@angular/material/stepper';
+
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     PedidoComponent,
     PaginaPrincipalComponent,
       DialogBoxComponent,
-      DescripcionCafeteriaComponent
+      DescripcionCafeteriaComponent,
+      RegistroComponent
    ],
   imports: [
     HttpClientModule,
@@ -51,11 +55,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatStepperModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
       {path: 'descripcion-cafeteria', component:DescripcionCafeteriaComponent},
-      {path: '', redirectTo: '/descripcion-cafeteria', pathMatch: 'full'}
+      {path: '', redirectTo: '/descripcion-cafeteria', pathMatch: 'full'},
+      {path: 'registro', component: RegistroComponent},
     ]),
 
    ],

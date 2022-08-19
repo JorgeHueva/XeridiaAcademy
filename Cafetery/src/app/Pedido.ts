@@ -1,4 +1,4 @@
-export class Pedido {
+export interface Pedido {
   orderid: number;
   typeCoffe: string;
   numCoffe: number;
