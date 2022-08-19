@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,9 +23,10 @@ export class PaginaPrincipalComponent implements OnInit {
   coffe_o: Coffe_o = {numCoffe: 0, price:0, typeCoffe:""};
   dataSource = new MatTableDataSource<Coffe>();
 
+
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  constructor(private pedidoServicio: PedidoService) {}
+  constructor(private pedidoServicio: PedidoService, private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
       this.dataSource.paginator = this.paginator;
@@ -55,6 +57,13 @@ export class PaginaPrincipalComponent implements OnInit {
       this.cafes = dato;
 
     } )
+  }
+
+  openSnackBar() {
+    if (this.coffe_o.typeCoffe != "" && this.coffe_o.numCoffe > 0){
+      this._snackBar.open( String (this.coffe_o.typeCoffe),"Añadido",{duration: 1000, horizontalPosition:'end', verticalPosition: 'bottom'});
+    }
+
   }
 
   onSubmit (){

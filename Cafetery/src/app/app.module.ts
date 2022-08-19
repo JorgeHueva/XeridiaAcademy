@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { MatSortModule } from '@angular/material/sort';
 import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripcion-cafeteria.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripci
     MatDialogModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},

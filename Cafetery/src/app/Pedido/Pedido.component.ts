@@ -19,15 +19,13 @@ export interface CoffeeData {
 export class PedidoComponent implements OnInit {
 
   columnas: string[] = ['Tipo', 'Numero', 'Precio', 'action'];
-  datos: Array<Coffe_o> = [];
 
-  datasource = this.datos;
   total: number = 0;
 
 
   @ViewChild(MatTable,{static:true}) tabla1!: MatTable<Coffe_o>;
 
-  constructor(public dialog: MatDialog, private pedidoServicio: PedidoService, private router: Router) { }
+  constructor(public dialog: MatDialog, public pedidoServicio: PedidoService, private router: Router) { }
 
   openDialog(action: any,obj: { action: any; }) {
     obj.action = action;
@@ -46,7 +44,7 @@ export class PedidoComponent implements OnInit {
   }
 
   updateRowData(row_obj: { typeCoffe: String; numCoffe: number; }){
-    this.datos = this.datos.filter((value,key)=>{
+    this.pedidoServicio.order = this.pedidoServicio.order.filter((value,key)=>{
       if(value.typeCoffe == row_obj.typeCoffe && row_obj.numCoffe > 0){
         value.price = value.price/value.numCoffe;
         value.numCoffe = row_obj.numCoffe;
@@ -60,26 +58,26 @@ export class PedidoComponent implements OnInit {
   }
 
   deleteRowData(row_obj: { typeCoffe: String; numCoffe: number; }){
-    this.datos = this.datos.filter((value,key)=>{
+    this.pedidoServicio.order = this.pedidoServicio.order.filter((value,key)=>{
       return value.typeCoffe != row_obj.typeCoffe;
     });
   }
 
   guardarCafes(){
-    this.pedidoServicio.registrarCafes(this.datos).subscribe();
+    this.pedidoServicio.registrarCafes(this.pedidoServicio.order).subscribe();
     this.reinicioLista ();
+    this.total = 0;
   }
   reinicioLista (){
     this.pedidoServicio.order = [];
   }
   sumarTotal(){
     this.total = 0;
-    for (let i = 0; i < this.datos.length; i++){
-      this.total = this.total + this.datos[i].price;
+    for (let i = 0; i < this.pedidoServicio.order.length; i++){
+      this.total = this.total + this.pedidoServicio.order[i].price;
     }
   }
   ngOnInit() {
-    this.datos = this.pedidoServicio.order;
     this.sumarTotal();
   }
 
