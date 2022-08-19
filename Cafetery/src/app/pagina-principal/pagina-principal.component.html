@@ -36,31 +36,26 @@
   <tr mat-header-row *matHeaderRowDef="columnas"></tr>
   <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
 </table>
-<mat-paginator #paginator [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[2, 3, 5]">
+<mat-paginator class="paginas" #paginator [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[2, 3, 5]">
 </mat-paginator>
 </div>
 </div>
 
-<br>
-<br>
-<br>
+<h3 class ="pedido">Pedido</h3>
 
-
-    <h3 class ="text-center">Pedido</h3>
-
-    <form (ngSubmit)="onSubmit()">
-      <mat-label>Ingrese tipo de cafe</mat-label>
-      <mat-form-field>
-          <mat-select placeholder="Cafes" style="color: white;" [(ngModel)]="coffe_o.typeCoffe" name="operacion">
-            <mat-option *ngFor="let op of cafes" [value]="op.typeCoffe">
-              {{op.typeCoffe}}
-            </mat-option>
-          </mat-select>
-      </mat-form-field>
+  <form (ngSubmit)="onSubmit()">
+    <mat-label>Ingrese tipo de cafe</mat-label>
+    <mat-form-field>
+        <mat-select placeholder="Cafes" style="color: white;" [(ngModel)]="coffe_o.typeCoffe" name="operacion">
+          <mat-option *ngFor="let op of cafes" [value]="op.typeCoffe">
+            {{op.typeCoffe}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
     <br>
     <mat-label>Ingrese numero de cafes</mat-label>
       <mat-form-field>
-          <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number"  min = "1">
+        <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number"  min = "1">
       </mat-form-field>
       <br>
       <button mat-stroked-button class="btn-success" (click)="openSnackBar()"> <p class="boton-agregar"> Agregar</p>  <mat-icon class="mat-18">add_shopping_cart</mat-icon></button>

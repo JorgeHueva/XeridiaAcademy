@@ -61,6 +61,7 @@ export class PedidoComponent implements OnInit {
     this.pedidoServicio.order = this.pedidoServicio.order.filter((value,key)=>{
       return value.typeCoffe != row_obj.typeCoffe;
     });
+    this.sumarTotal();
   }
 
   guardarCafes(){

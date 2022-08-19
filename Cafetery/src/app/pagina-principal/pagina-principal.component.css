@@ -34,10 +34,11 @@ th {
   background-color: #9c786c ;
 }
 
-h3 {
+.pedido {
   color: white;
   text-decoration: none;
   text-align: center;
+  margin-top: 3%;
  }
 
 .btn-success {
@@ -58,6 +59,10 @@ form{
   justify-content: center;
   align-items: center;
   color: white;
+ }
+ .paginas{
+  margin-left: 10%;
+  margin-right: 10%;
  }
 
 .mat-form-field{
