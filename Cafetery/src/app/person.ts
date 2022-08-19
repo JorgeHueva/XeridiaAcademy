@@ -1,5 +1,6 @@
 export interface Person {
-    name: string;
-    email: string;
-    password: string;
+    nombre?: string;
+    apellido?: string;
+    email?: string;
+    password?: string;
   }

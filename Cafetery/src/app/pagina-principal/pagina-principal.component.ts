@@ -55,7 +55,6 @@ export class PaginaPrincipalComponent implements OnInit {
     this.pedidoServicio.obtenerLista().subscribe(dato => {
       this.dataSource.data = dato;
       this.cafes = dato;
-
     } )
   }
 

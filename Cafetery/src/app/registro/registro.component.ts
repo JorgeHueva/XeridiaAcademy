@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PedidoService } from '../pedido.service';
 import { Person } from '../person';
 
 
@@ -10,26 +10,20 @@ import { Person } from '../person';
 })
 export class RegistroComponent implements OnInit {
 
-  person: Person[] = [];
+  person: Person = {};
 
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  isLinear = false;
-  //formGroup: FormGroup;
-  //form: FormArray;
-  
-
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private servicioRegistro: PedidoService) { }
 
   ngOnInit() {
+
   }
 
   onSubmit(){
-    
+    console.log(this.person);
   }
 
+  Guardar(){
+    console.log(this.person);
+    this.servicioRegistro.registroClientes(this.person).subscribe();
+  }
 }

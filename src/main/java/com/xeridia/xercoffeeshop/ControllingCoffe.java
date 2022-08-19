@@ -74,6 +74,21 @@ public class ControllingCoffe {
         return "Saved";
     }
 
+    @PostMapping(path = "/registro")
+    public @ResponseBody String addNewClient (@RequestBody(required=false) Object cliente){
+
+        Client c = new Client();
+
+//        c.setNombre((String) ((LinkedHashMap) cliente.get(0)).get("nombre"));
+//        c.getApellidos((String) ((LinkedHashMap) cliente.get(0)).get("apellido"));
+//        c.setEmail((String) ((LinkedHashMap) cliente.get(0)).get("email"));
+//        c.setPassword((String) ((LinkedHashMap) cliente.get(0)).get("password"));
+
+        System.out.println(cliente);
+        return "Saved";
+
+    }
+
     @GetMapping(path="/cafes")
     public @ResponseBody List<Coffe> getAllUsers() {
         // This returns a JSON or XML with the users

@@ -1,45 +1,24 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-<mat-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Introduzca su nombre</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Nombre" formControlName="firstCtrl" required>
-        <button> </button>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Siguiente</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Introduzca su email">
-    <form [formGroup]="secondFormGroup">
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="jscoffy@gmail.com"
-               required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Contraseña</mat-label>
-        <input matInput formControlName="secondCtrl" 
-               required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Atras</button>
-        <button mat-button matStepperNext>Siguiente</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Realizado!</ng-template>
-    <p>Se ha registrado</p>
-    <div>
-      <button mat-button matStepperPrevious>Atras</button>
-      <button mat-button (click)="stepper.reset()">Reiniciar
-      </button>
-    </div>
-  </mat-step>
-</mat-stepper>
+<form class="form" (ngSubmit)="onSubmit()">
+
+  <table class="formulario" cellspacing="0"><tr>
+    <td><mat-form-field class="celda" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput name="nombre" [(ngModel)]="person.nombre" type="string" placeholder="Guillermo">
+    </mat-form-field></td>
+    <td><mat-form-field class="celda" appearance="fill">
+      <mat-label>Apellidos</mat-label>
+      <input matInput name="apellidos" [(ngModel)]="person.apellido" type="string" placeholder="Blanco Garcia">
+    </mat-form-field></td>
+  </tr></table>
+  <p>
+    <mat-form-field class="celda" appearance="fill">
+      <mat-label>Email</mat-label>
+      <textarea matInput name="Email" [(ngModel)]="person.email" type="string" placeholder="jscoffy@gmail.com"></textarea>
+    </mat-form-field>
+    <mat-form-field class="celda" appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput name="contraseña" [(ngModel)]="person.password" placeholder="1234hola">
+    </mat-form-field>
+  </p>
+</form>
+<button mat-button (click)="Guardar()" mat-flat-button color="primary">Guardar</button>

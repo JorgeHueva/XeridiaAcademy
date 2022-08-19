@@ -55,7 +55,7 @@
     <br>
     <mat-label>Ingrese numero de cafes</mat-label>
       <mat-form-field>
-        <input matInput name="numero" [(ngModel)]="coffe_o.numCoffe" type="number"  min = "1">
+        <input matInput name="numero" placeholder="numero" [(ngModel)]="coffe_o.numCoffe" type="number"  min = "1">
       </mat-form-field>
       <br>
       <button mat-stroked-button class="btn-success" (click)="openSnackBar()"> <p class="boton-agregar"> Agregar</p>  <mat-icon class="mat-18">add_shopping_cart</mat-icon></button>

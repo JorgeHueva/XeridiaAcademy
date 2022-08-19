@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coffe } from './coffe';
 import { Coffe_o } from './coffe_o';
+import { Person } from './person';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class PedidoService {
   // Obtengo la lista
   private baseURL = "http://localhost:8080/cafeteria/cafes";
   private addURL = "http://localhost:8080/cafeteria/agrega";
+  private registroURL = "http://localhost:8080/cafeteria/registro";
 
   order: Array<Coffe_o> = [];
   constructor(private httpClient : HttpClient) { }
@@ -21,5 +23,9 @@ export class PedidoService {
 }
   registrarCafes(listaCafes: Array<Coffe_o>) : Observable<any>{
     return this.httpClient.post(`${this.addURL}`, listaCafes, {responseType: 'text'});
+}
+  registroClientes (cliente: Person) : Observable<any>{
+    console.log(cliente);
+    return this.httpClient.post(`${this.registroURL}`, cliente, {responseType: 'text'});
 }
 }
