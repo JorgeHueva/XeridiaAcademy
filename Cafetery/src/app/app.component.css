@@ -12,6 +12,7 @@ h1{
 }
 span {
   display:block;
+  font-size: 1cm;
   }
 
 .mat-toolbar.menu{

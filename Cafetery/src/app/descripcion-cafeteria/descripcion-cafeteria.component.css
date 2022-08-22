@@ -36,6 +36,14 @@
   color: white;
 }
 
+.imagen{
+  width: 500px;
+  height: 500px;
+  border-radius: 1%;
+  border-style: groove;
+  border-color: white;
+}
+
 .mundo{
   color: white;
   text-align: justify;

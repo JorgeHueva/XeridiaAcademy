@@ -2,6 +2,7 @@ package com.xeridia.xercoffeeshop;
 
 
 import com.google.gson.JsonObject;
+import com.xeridia.xercoffeeshop.repository.ClientRepository;
 import com.xeridia.xercoffeeshop.repository.CoffeRepository;
 import com.xeridia.xercoffeeshop.repository.Coffe_ORepository;
 import com.xeridia.xercoffeeshop.repository.PedidoRepository;
@@ -25,6 +26,8 @@ public class ControllingCoffe {
     private List<Coffe> coffe;
     @Autowired
     private PedidoRepository pedidoRepository;
+    @Autowired
+    private ClientRepository clientRepository;
 
     Long num = Long.valueOf(0);
 
@@ -75,16 +78,13 @@ public class ControllingCoffe {
     }
 
     @PostMapping(path = "/registro")
-    public @ResponseBody String addNewClient (@RequestBody(required=false) Object cliente){
+    public @ResponseBody String addNewClient (@RequestBody(required=false) Client cliente){
 
         Client c = new Client();
 
-//        c.setNombre((String) ((LinkedHashMap) cliente.get(0)).get("nombre"));
-//        c.getApellidos((String) ((LinkedHashMap) cliente.get(0)).get("apellido"));
-//        c.setEmail((String) ((LinkedHashMap) cliente.get(0)).get("email"));
-//        c.setPassword((String) ((LinkedHashMap) cliente.get(0)).get("password"));
-
-        System.out.println(cliente);
+        c = cliente;
+        System.out.println(c);
+        clientRepository.save(c);
         return "Saved";
 
     }
