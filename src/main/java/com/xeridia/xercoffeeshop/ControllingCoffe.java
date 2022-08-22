@@ -94,9 +94,19 @@ public class ControllingCoffe {
         // This returns a JSON or XML with the users
         return (List<Coffe>) repository.findAll();
     }
+    @PostMapping(path = "/login")
+    public @ResponseBody Client logeado (@RequestBody(required=false) Client logeado){
+        Client c = new Client();
+        c = logeado;
 
-    @GetMapping(path="/login")
-    public @ResponseBody List<Client> getAllClient() {
-        return (List<Client>) clientRepository.findAll();
+        Optional<Client> opcionalclient = clientRepository.findById(c.getEmail());
+        System.out.println(opcionalclient.get());
+        System.out.println(c.getPassword());
+        System.out.println(opcionalclient.get().getPassword());
+        if (!opcionalclient.isEmpty() && Objects.equals(opcionalclient.get().getPassword(), c.getPassword()) ){
+            return opcionalclient.get();
+        }
+        return null;
     }
+
 }

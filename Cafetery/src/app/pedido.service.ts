@@ -26,10 +26,10 @@ export class PedidoService {
     return this.httpClient.post(`${this.addURL}`, listaCafes, {responseType: 'text'});
 }
   registroClientes (cliente: Person) : Observable<any>{
-    console.log(cliente);
     return this.httpClient.post(`${this.registroURL}`, cliente, {responseType: 'text'});
 }
-  obtenerListaClientes (): Observable<Person []> {
-  return this.httpClient.get<Person []>(`${this.baseCliente}`);
+  login(logeado: Person) : Observable<any>{
+    console.log(logeado);
+    return this.httpClient.post(`${this.baseCliente}`, logeado, {responseType: 'text'});
 }
 }

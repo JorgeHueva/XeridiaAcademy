@@ -11,26 +11,21 @@ export class LoginComponent implements OnInit {
 
   cliente: Person = {};
   dataSource: Person [] = [];
+  conectado: Person = {};
 
   constructor(private pedidoServicio: PedidoService) { }
 
   ngOnInit() {
-    this.obtenerCliente ()
+    this.conectado;
   }
 
   onSubmit(){
   }
 
-  private obtenerCliente (){
-    this.pedidoServicio.obtenerListaClientes().subscribe(dato => {
-      this.dataSource = dato;
-    } )
-  }
   login(){
-    for(let i = 0; i < this.dataSource.length; i++){
-      if (this.dataSource[i].email == this.cliente.email && this.dataSource[i].password == this.cliente.password){
-        console.log("EXITO")
-      }
-    }
+    this.pedidoServicio.login(this.cliente).subscribe();
+  }
+  logout(){
+  
   }
 }

@@ -32,7 +32,6 @@ export class RegistroComponent implements OnInit {
   }
 
   Guardar(){
-    console.log(this.person);
     this.servicioRegistro.registroClientes(this.person).subscribe();
   }
 

@@ -39,7 +39,7 @@ import { LoginComponent } from './login/login.component';
       DialogBoxComponent,
       DescripcionCafeteriaComponent,
       RegistroComponent,
-      LoginComponent
+      LoginComponent,
    ],
   imports: [
     HttpClientModule,
@@ -66,7 +66,7 @@ import { LoginComponent } from './login/login.component';
       {path: 'descripcion-cafeteria', component:DescripcionCafeteriaComponent},
       {path: '', redirectTo: '/descripcion-cafeteria', pathMatch: 'full'},
       {path: 'registro', component: RegistroComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
     ]),
 
    ],
