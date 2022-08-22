@@ -34,4 +34,15 @@ insert into coffe (Type_Coffe, Price, description, imagen)
 values ('Cafe irlandes', 3.80, 'Famoso cóctel que contiene whiskey, café, azúcar y crema', 'https://www.bi1.fr/wp-content/uploads/2019/11/Recette-whisky-03-300x230.png');
 insert into coffe (Type_Coffe, Price, description,imagen )
 values ('Cola Cao',1.80, 'Delicioso cacao en polvo con nuestra leche de la mejor calidad', 'https://image.freepik.com/foto-gratis/cola-cao-vaso-mesa_23-2147985566.jpg');
-
+insert into coffe (Type_Coffe, Price, description,imagen )
+values ('Te verde',1.90, 'El té verde recibe su nombre por el color que adquieren las hojas del té en el proceso diferenciador, en la fermentación y el secado. Es un tipo de té que procede la planta Camellia sinensis.', 'https://statics-cuidateplus.marca.com/cms/styles/ratio_16_9/azblob/te_verde.jpg.webp?itok=6K-94miw');
+insert into coffe (Type_Coffe, Price, description,imagen )
+values ('Te rojo',1.90, 'El té rojo es un tipo de té que se obtiene a partir de hojas del árbol Camellia sinensis, el mismo del que procede el té verde, solo que estas son sometidas a un tipo de procesamiento muy distinto que hace que también varíen las propiedades de esta planta', 'https://www.definicionabc.com/wp-content/uploads/general/te-rojo-2-410x339.jpg');
+insert into coffe (Type_Coffe, Price, description,imagen )
+values ('Te negro',1.90, 'El té negro es una variedad de té obtenido de la planta Camellia sinensis, la misma de la que se obtienen el té verde y el té rojo, este se logra al emplear hojas y tallos envejecidos, lo que cambia sus propiedades y sus efectos en el organismo', 'https://t2.uc.ltmcdn.com/es/posts/5/0/3/cuales_son_las_contraindicaciones_del_te_negro_41305_orig.jpg');
+insert into coffe (Type_Coffe, Price, description,imagen )
+values ('Pincho tortilla',2.00, 'Deliciosas patatas freidas a fuego lento con huevos batidos y una pizca de sal, dando como resultado una textura perfecta ', 'https://canalcocina.es/medias/_cache/zoom-ed33006354886cff3b7d7b01d3629fb7-920-518.jpg');
+insert into coffe (Type_Coffe, Price, description, imagen)
+values ('Bocadito de jamon', 2.20, 'Jamón ibérico con pan horneado del día con un chorrito de aceite de oliva virgen extra y un poco de tomate  ', 'https://minimarketformentera.com/wp-content/uploads/2021/06/Entrepa-Pernil-scaled.jpg');
+insert into coffe (Type_Coffe, Price, description, imagen)
+values ('Bollería del día', 1.50, 'Dependiendo del día de la semana una panadería nos trae diferentes variedades', 'https://www.consumer.es/app/uploads/fly-images/101195/img_aceite-palma-bolleria-industrial-hd-1200x550-cc.jpg');
