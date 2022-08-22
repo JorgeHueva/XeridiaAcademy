@@ -58,7 +58,7 @@
         <input matInput name="numero" placeholder="numero" [(ngModel)]="coffe_o.numCoffe" type="number"  min = "1">
       </mat-form-field>
       <br>
-      <button mat-stroked-button class="btn-success" (click)="openSnackBar()"> <p class="boton-agregar"> Agregar</p>  <mat-icon class="mat-18">add_shopping_cart</mat-icon></button>
+      <button mat-stroked-button class="btn-success"  [disabled]="!coffe_o.typeCoffe || !coffe_o.numCoffe" (click)="openSnackBar()"> <p class="boton-agregar" > Agregar</p>  <mat-icon class="mat-18" >add_shopping_cart</mat-icon></button>
     </form>
 <div></div>
 

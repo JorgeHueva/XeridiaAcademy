@@ -1,4 +1,4 @@
-<form class="form" (ngSubmit)="onSubmit()">
+<form class="form"  (ngSubmit)="onSubmit()">
 
   <table class="formulario" cellspacing="0"><tr>
     <td><mat-form-field class="celda" appearance="fill">
@@ -17,8 +17,10 @@
     </mat-form-field>
     <mat-form-field class="celda" appearance="fill">
       <mat-label>Contraseña</mat-label>
-      <input matInput name="contraseña" [(ngModel)]="person.password" placeholder="1234hola">
+      <input matInput name="contraseña" type="password" [(ngModel)]="person.password" placeholder="1234hola">
+      
     </mat-form-field>
   </p>
 </form>
-<button mat-button (click)="Guardar()" mat-flat-button color="primary">Guardar</button>
+<button mat-button (click)="Guardar()" mat-flat-button color="primary" [disabled]="!person.nombre || !person.apellido || !person.password || !person.email" >Guardar</button>
+
