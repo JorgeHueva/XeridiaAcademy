@@ -16,10 +16,10 @@ public class Client {
 
     @Column(name = "apellido",  length = 150)
     private String apellido;
-
+    @Id
     @Column(name = "email", length = 150)
     private String email;
-    @Id
+
     @Column(name = "password", length = 150)
     private String password;
 

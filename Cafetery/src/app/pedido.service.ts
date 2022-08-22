@@ -13,6 +13,7 @@ export class PedidoService {
   private baseURL = "http://localhost:8080/cafeteria/cafes";
   private addURL = "http://localhost:8080/cafeteria/agrega";
   private registroURL = "http://localhost:8080/cafeteria/registro";
+  private baseCliente = "http://localhost:8080/cafeteria/login";
 
   order: Array<Coffe_o> = [];
   constructor(private httpClient : HttpClient) { }
@@ -29,6 +30,6 @@ export class PedidoService {
     return this.httpClient.post(`${this.registroURL}`, cliente, {responseType: 'text'});
 }
   obtenerListaClientes (): Observable<Person []> {
-  return this.httpClient.get<Person []>(`${this.baseURL}`);
+  return this.httpClient.get<Person []>(`${this.baseCliente}`);
 }
 }
