@@ -29,8 +29,6 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.person);
-
   }
 
   Guardar(){

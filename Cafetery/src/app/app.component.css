@@ -29,10 +29,12 @@ span {
 
 .registro{
   color: white;
-  margin-left: 85%;
-
+  margin-left: 0%;
 }
-
+.login{
+  margin-left:83%;
+  color: white;
+}
 .mat{
   color: white;
 }

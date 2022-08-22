@@ -13,14 +13,14 @@
   <p>
     <mat-form-field class="celda" appearance="fill">
       <mat-label>Email</mat-label>
-      <textarea matInput name="Email" [(ngModel)]="person.email" type="string" placeholder="jscoffy@gmail.com"></textarea>
+      <textarea matInput name="Email" [(ngModel)]="person.email" type="string" placeholder="jscoffy@gmail.com" [email] = "true"> </textarea>
     </mat-form-field>
     <mat-form-field class="celda" appearance="fill">
       <mat-label>Contraseña</mat-label>
       <input matInput name="contraseña" type="password" [(ngModel)]="person.password" placeholder="1234hola">
-      
+
     </mat-form-field>
   </p>
 </form>
-<button mat-button (click)="Guardar()" mat-flat-button color="primary" [disabled]="!person.nombre || !person.apellido || !person.password || !person.email" >Guardar</button>
+<button mat-button class="guardar" (click)="Guardar()" mat-flat-button color="primary" [disabled]="!person.nombre || !person.apellido || !person.password || !person.email" >Guardar</button>
 

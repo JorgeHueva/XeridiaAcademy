@@ -26,6 +26,7 @@ import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripci
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegistroComponent } from './registro/registro.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -37,7 +38,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     PaginaPrincipalComponent,
       DialogBoxComponent,
       DescripcionCafeteriaComponent,
-      RegistroComponent
+      RegistroComponent,
+      LoginComponent
    ],
   imports: [
     HttpClientModule,
@@ -64,6 +66,7 @@ import {MatStepperModule} from '@angular/material/stepper';
       {path: 'descripcion-cafeteria', component:DescripcionCafeteriaComponent},
       {path: '', redirectTo: '/descripcion-cafeteria', pathMatch: 'full'},
       {path: 'registro', component: RegistroComponent},
+      {path: 'login', component: LoginComponent}
     ]),
 
    ],

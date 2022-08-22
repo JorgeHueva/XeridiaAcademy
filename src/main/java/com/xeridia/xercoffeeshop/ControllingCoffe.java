@@ -94,4 +94,9 @@ public class ControllingCoffe {
         // This returns a JSON or XML with the users
         return (List<Coffe>) repository.findAll();
     }
+
+    @GetMapping(path="/login")
+    public @ResponseBody List<Client> getAllClient() {
+        return (List<Client>) clientRepository.findAll();
+    }
 }

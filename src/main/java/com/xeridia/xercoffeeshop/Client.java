@@ -14,8 +14,8 @@ public class Client {
     @Column(name = "nombre",  length = 150)
     private String nombre;
 
-    @Column(name = "apellidos",  length = 150)
-    private String apellidos;
+    @Column(name = "apellido",  length = 150)
+    private String apellido;
 
     @Column(name = "email", length = 150)
     private String email;
@@ -32,11 +32,11 @@ public class Client {
     }
 
     public String getApellidos(String apellido) {
-        return apellidos;
+        return this.apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getEmail() {
@@ -59,7 +59,7 @@ public class Client {
     public String toString() {
         return "Client{" +
                 "nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
+                ", apellido='" + apellido + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';

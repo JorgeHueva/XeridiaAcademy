@@ -28,4 +28,7 @@ export class PedidoService {
     console.log(cliente);
     return this.httpClient.post(`${this.registroURL}`, cliente, {responseType: 'text'});
 }
+  obtenerListaClientes (): Observable<Person []> {
+  return this.httpClient.get<Person []>(`${this.baseURL}`);
+}
 }
