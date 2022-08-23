@@ -10,8 +10,8 @@ import { Person } from '../person';
 export class LoginComponent implements OnInit {
 
   cliente: Person = {};
-  dataSource: Person [] = [];
   conectado: Person = {};
+  log: Person = {};
 
   constructor(private pedidoServicio: PedidoService) { }
 
@@ -23,9 +23,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.pedidoServicio.login(this.cliente).subscribe();
+    this.pedidoServicio.login(this.cliente).subscribe(dato => this.conectado = dato as Person);
+    console.log(this.conectado);
+    this.log = this.conectado;
+    console.log (this.log);
+
   }
   logout(){
-  
+
   }
 }

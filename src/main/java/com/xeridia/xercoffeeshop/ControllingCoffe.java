@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import com.google.gson.Gson;
 import java.util.*;
 
 @Controller
@@ -100,9 +99,6 @@ public class ControllingCoffe {
         c = logeado;
 
         Optional<Client> opcionalclient = clientRepository.findById(c.getEmail());
-        System.out.println(opcionalclient.get());
-        System.out.println(c.getPassword());
-        System.out.println(opcionalclient.get().getPassword());
         if (!opcionalclient.isEmpty() && Objects.equals(opcionalclient.get().getPassword(), c.getPassword()) ){
             return opcionalclient.get();
         }

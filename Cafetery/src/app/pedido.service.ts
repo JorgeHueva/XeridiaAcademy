@@ -29,7 +29,7 @@ export class PedidoService {
     return this.httpClient.post(`${this.registroURL}`, cliente, {responseType: 'text'});
 }
   login(logeado: Person) : Observable<any>{
-    console.log(logeado);
     return this.httpClient.post(`${this.baseCliente}`, logeado, {responseType: 'text'});
 }
+
 }

@@ -1,5 +1,5 @@
 <h2 class="texto">Entra en tu cuenta aqui..</h2>
-<form class="form"  (ngSubmit)="onSubmit()">
+<form class="form"  >
   <p>
     <mat-form-field class="celda" appearance="fill">
       <mat-label>Email</mat-label>
@@ -15,8 +15,8 @@
 <button mat-button class="login" (click)="login()" mat-flat-button color="primary" [disabled]="!cliente.password || !cliente.email" >Login</button>
 <div>
   <p class="cliente">
-    {{conectado.nombre}} <br>
-    {{conectado.email}} <br>
+    {{log.nombre}} <br>
+    {{log.email}} <br>
   </p>
 </div>
 <button mat-button class="logout" (click)="logout()" mat-flat-button color="primary" [disabled]="!conectado.password">Logout</button>
