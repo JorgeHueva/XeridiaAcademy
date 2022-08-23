@@ -15,8 +15,8 @@
 <button mat-button class="login" (click)="login()" mat-flat-button color="primary" [disabled]="!cliente.password || !cliente.email" >Login</button>
 <div>
   <p class="cliente">
-    {{log.nombre}} <br>
-    {{log.email}} <br>
+    {{conectado.nombre}} <br>
+    {{conectado.email}} <br>
   </p>
 </div>
 <button mat-button class="logout" (click)="logout()" mat-flat-button color="primary" [disabled]="!conectado.password">Logout</button>

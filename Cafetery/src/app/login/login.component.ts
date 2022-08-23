@@ -19,17 +19,11 @@ export class LoginComponent implements OnInit {
     this.conectado;
   }
 
-  onSubmit(){
-  }
-
   login(){
     this.pedidoServicio.login(this.cliente).subscribe(dato => this.conectado = dato as Person);
-    console.log(this.conectado);
-    this.log = this.conectado;
-    console.log (this.log);
-
+    this.cliente = this.conectado;
   }
   logout(){
-
+    this.conectado = {};
   }
 }
