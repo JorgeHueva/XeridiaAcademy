@@ -11,7 +11,6 @@ export class LoginComponent implements OnInit {
 
   cliente: Person = {};
   conectado: Person = {};
-  log: Person = {};
 
   constructor(private pedidoServicio: PedidoService) { }
 
@@ -20,7 +19,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.pedidoServicio.login(this.cliente).subscribe(dato => this.conectado = dato as Person);
+    this.pedidoServicio.login(this.cliente).subscribe(dato => {
+      if (dato == null){
+        this.conectado = {};
+        window.alert ("Usuario invalido, pruebe otra vez")
+      }else{
+        this.conectado = dato as Person;
+      }
+    })
     this.cliente = this.conectado;
   }
   logout(){

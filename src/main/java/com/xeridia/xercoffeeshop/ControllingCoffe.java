@@ -6,10 +6,14 @@ import com.xeridia.xercoffeeshop.repository.ClientRepository;
 import com.xeridia.xercoffeeshop.repository.CoffeRepository;
 import com.xeridia.xercoffeeshop.repository.Coffe_ORepository;
 import com.xeridia.xercoffeeshop.repository.PedidoRepository;
+import org.apache.commons.codec.digest.MessageDigestAlgorithms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import java.security.MessageDigest;
+import org.apache.commons.codec.binary.Base64;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.*;
@@ -80,8 +84,9 @@ public class ControllingCoffe {
     public @ResponseBody String addNewClient (@RequestBody(required=false) Client cliente){
 
         Client c = new Client();
-
         c = cliente;
+
+        c.setPassword(getHash(cliente.getPassword()));
         System.out.println(c);
         clientRepository.save(c);
         return "Saved";
@@ -98,11 +103,30 @@ public class ControllingCoffe {
         Client c = new Client();
         c = logeado;
 
+        c.setPassword(getHash(logeado.getPassword()));
+        System.out.println(logeado.getPassword());
         Optional<Client> opcionalclient = clientRepository.findById(c.getEmail());
         if (!opcionalclient.isEmpty() && Objects.equals(opcionalclient.get().getPassword(), c.getPassword()) ){
             return opcionalclient.get();
         }
+        System.out.println("tu gozo en un pozo");
         return null;
     }
 
+    public static String getHash(String txt) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest
+                    .getInstance("MD5");
+            byte[] array = md.digest(txt.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100)
+                        .substring(1, 3));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }
