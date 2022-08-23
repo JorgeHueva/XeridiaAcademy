@@ -1,6 +1,9 @@
+.hiper{
+  text-decoration: none;
+  color: white;
+}
 
 .titulo {
-
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   border: none;

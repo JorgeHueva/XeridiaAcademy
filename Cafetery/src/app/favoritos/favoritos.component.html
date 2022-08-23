@@ -1,0 +1,12 @@
+<mat-expansion-panel (opened)="favPanelOpenState = true" (closed)="favPanelOpenState = false">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Favoritos
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-selection-list>
+      <mat-list-option *ngFor="let cafe of cafes"> {{cafes}} </mat-list-option>
+     
+  

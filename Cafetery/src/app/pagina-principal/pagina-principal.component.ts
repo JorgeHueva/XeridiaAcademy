@@ -5,6 +5,8 @@ import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormControl } from '@angular/forms';
+import { FavoritosComponent } from '../favoritos/favoritos.component';
 
 
 @Component({
@@ -14,7 +16,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
-  columnas: string[] = ['tipo', 'precio', 'descripcion', 'imagen'] ;
+  columnas: string[] = ['tipo', 'precio', 'descripcion', 'imagen', 'favoritos'] ;
 
   cafes: Coffe[] = [];
   contador: number = 0;
@@ -96,5 +98,27 @@ export class PaginaPrincipalComponent implements OnInit {
     this.coffe_o = {numCoffe: 0, price:0, typeCoffe:""};
     this.pedidoServicio.order = this.pedido;
   }
+
+  addFavoritos(coffe: string){
+  //for (let j=0; j < this.pedidoServicio.favoritos.length; j++ )  {
+    //if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
+      //this.pedidoServicio.favoritos.splice(j);
+      //break;
+   // } else {
+        for (let i=0; i < this.cafes.length; i++){
+          if (this.cafes[i].typeCoffe == coffe ){
+          this.pedidoServicio.favoritos.push(this.cafes[i]);
+          break;
+          }
+       }
+     // }
+  //}
+
+    console.log(this.pedidoServicio.favoritos);
+  }
+
+
+
+
 }
 

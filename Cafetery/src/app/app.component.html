@@ -1,7 +1,8 @@
 <div>
 <p>
-  <mat-toolbar style="align-items: centre;">
-    <span>{{title}}</span>
+  <mat-toolbar  style="align-items: centre;">
+    <a class="hiper" href = "http://localhost:4200/descripcion-cafeteria"> <span>{{title}}</span></a>
+
   </mat-toolbar>
 </p>
 <p>
@@ -21,6 +22,8 @@
     <a mat-menu-item class ="button" routerLink="/descripcion-cafeteria" routerLinkActive="activebutton"> <mat-icon class="mat-1">home</mat-icon>  Inicio</a>
     <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton"> <mat-icon class="mat-18">coffee </mat-icon> Mis Productos</a>
     <a mat-menu-item class ="button" routerLink="/Pedido" routerLinkActive="click"> <mat-icon class="mat-18">shopping_basket</mat-icon> Cesta</a>
+    <a mat-menu-item class ="button" routerLink="/Favoritos" routerLinkActive="activebutton"> <mat-icon class="mat-1">favorite</mat-icon>  Favoritos</a>
+
   </nav>
 </mat-menu>
 </div>

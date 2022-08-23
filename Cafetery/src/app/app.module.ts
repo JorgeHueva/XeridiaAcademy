@@ -27,8 +27,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegistroComponent } from './registro/registro.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { LoginComponent } from './login/login.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -40,6 +44,7 @@ import { LoginComponent } from './login/login.component';
       DescripcionCafeteriaComponent,
       RegistroComponent,
       LoginComponent,
+      FavoritosComponent
    ],
   imports: [
     HttpClientModule,
@@ -60,6 +65,10 @@ import { LoginComponent } from './login/login.component';
     MatSnackBarModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatListModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
@@ -67,6 +76,8 @@ import { LoginComponent } from './login/login.component';
       {path: '', redirectTo: '/descripcion-cafeteria', pathMatch: 'full'},
       {path: 'registro', component: RegistroComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'Favoritos', component: FavoritosComponent},
+
     ]),
 
    ],

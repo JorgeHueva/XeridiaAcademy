@@ -16,6 +16,9 @@ export class PedidoService {
   private baseCliente = "http://localhost:8080/cafeteria/login";
 
   order: Array<Coffe_o> = [];
+
+  favoritos: Array <Coffe> =[];
+
   constructor(private httpClient : HttpClient) { }
 
 //obtengo los cafes del sql
