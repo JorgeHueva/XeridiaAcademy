@@ -19,6 +19,8 @@ export class PedidoService {
 
   favoritos: Array <Coffe> =[];
 
+  logeado: Person = {};
+
   constructor(private httpClient : HttpClient) { }
 
 //obtengo los cafes del sql

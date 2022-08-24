@@ -34,6 +34,7 @@ export class PaginaPrincipalComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.obtenerCoffe();
       this.filterTable();
+      console.log (this.pedidoServicio.logeado);
   }
 
   filterTable() {
@@ -100,25 +101,21 @@ export class PaginaPrincipalComponent implements OnInit {
   }
 
   addFavoritos(coffe: string){
-  //for (let j=0; j < this.pedidoServicio.favoritos.length; j++ )  {
-    //if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
-      //this.pedidoServicio.favoritos.splice(j);
-      //break;
-   // } else {
-        for (let i=0; i < this.cafes.length; i++){
-          if (this.cafes[i].typeCoffe == coffe ){
-          this.pedidoServicio.favoritos.push(this.cafes[i]);
-          break;
-          }
-       }
-     // }
-  //}
-
+    let con = 0;
+    for (let j=0; j < this.pedidoServicio.favoritos.length; j++ ){
+      if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
+        this.pedidoServicio.favoritos.splice(j, 1);
+        con = 1;
+        break;
+      }
+    }
+    for (let i=0; i < this.cafes.length; i++){
+      if (this.cafes[i].typeCoffe == coffe && con == 0){
+        this.pedidoServicio.favoritos.push(this.cafes[i]);
+        break;
+      }
+    }
     console.log(this.pedidoServicio.favoritos);
   }
-
-
-
-
 }
 

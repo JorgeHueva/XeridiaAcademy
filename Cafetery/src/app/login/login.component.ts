@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private pedidoServicio: PedidoService) { }
 
   ngOnInit() {
-    this.conectado;
+    this.conectado = this.pedidoServicio.logeado;
   }
 
   login(){
@@ -25,11 +25,14 @@ export class LoginComponent implements OnInit {
         window.alert ("Usuario invalido, pruebe otra vez")
       }else{
         this.conectado = dato as Person;
+        this.pedidoServicio.logeado = this.conectado;
       }
     })
     this.cliente = this.conectado;
+
   }
   logout(){
     this.conectado = {};
+    this.pedidoServicio.logeado = this.conectado;
   }
 }

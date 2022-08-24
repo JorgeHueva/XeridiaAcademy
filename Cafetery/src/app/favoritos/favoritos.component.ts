@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Coffe } from '../coffe';
+import { PedidoService } from '../pedido.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -10,14 +11,12 @@ export class FavoritosComponent implements OnInit {
 
   favPanelOpenState = false;
 
-  //columnas: string[] = ['tipo', 'precio', 'descripcion', 'imagen'] ;
+  favoritos: Array<Coffe> = this.pedidoServicio.favoritos;
 
-  cafes: Coffe[] = [];
-
-  constructor() { }
+  constructor(private pedidoServicio: PedidoService) { }
 
   ngOnInit() {
-  
+
   }
 
 }

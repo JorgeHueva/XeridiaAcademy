@@ -5,11 +5,12 @@
 .form{
   background-color: white;
   margin-left: 5%;
-  margin-right: 78%;
+  margin-right: 84%;
 }
 
 .login{
-  margin-left: 12%;
+  margin-left: 12.6%;
+  margin-top: -0.5%;
 }
 
 .cliente{
@@ -20,6 +21,6 @@
 }
 
 .logout{
-  margin-top: 5.3%;
-  margin-left: 20%;
+  margin-top: 7.18%;
+  margin-left: 17%;
 }

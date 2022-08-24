@@ -1,10 +1,9 @@
 package com.xeridia.xercoffeeshop;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Client")
@@ -22,6 +21,17 @@ public class Client {
 
     @Column(name = "password", length = 150)
     private String password;
+
+    @OneToMany(mappedBy = "client", orphanRemoval = true)
+    private Set<Favourite> favourites = new LinkedHashSet<>();
+
+    public Set<Favourite> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(Set<Favourite> favourites) {
+        this.favourites = favourites;
+    }
 
     public String getNombre() {
         return nombre;
