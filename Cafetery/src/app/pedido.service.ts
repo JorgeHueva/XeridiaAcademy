@@ -40,8 +40,8 @@ export class PedidoService {
 }
 
   fav(fav: Fav): Observable<any> {
-    return this.httpClient.post(`${this.baseFav}`, fav); 
+    return this.httpClient.post(`${this.baseFav}`, fav);
   }
 
- 
+
 }

@@ -16,17 +16,13 @@ public class Favourite {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "imagen")
-    private String imagen;
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_email")
     private Client client;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public Long getId() {
@@ -69,21 +65,12 @@ public class Favourite {
         this.description = description;
     }
 
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     @Override
     public String toString() {
         return "Favourite{" +
                 "typeCoffe='" + typeCoffe + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
-                ", imagen='" + imagen + '\'' +
                 ", client=" + client +
                 ", id=" + id +
                 '}';

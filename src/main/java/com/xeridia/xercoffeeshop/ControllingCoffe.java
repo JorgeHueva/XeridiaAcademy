@@ -130,21 +130,27 @@ public class ControllingCoffe {
     }
 
     @PostMapping(path = "/favoritos")
-    public @ResponseBody Favourite addFav (@RequestBody(required=false) Favourite fav){
+    public @ResponseBody Favourite addFav (@RequestBody(required=false) Object fav){
 
         Favourite f = new Favourite();
-        f = fav;
+        List<Favourite> lista;
 
-        f.setTypeCoffe(fav.getTypeCoffe());
+        lista = (List<Favourite>) favouriteRepository.findAll();
+        System.out.println(((LinkedHashMap) fav).get("price"));
+        f.setTypeCoffe ((String) ((LinkedHashMap) fav).get("typeCoffe"));
+        f.setPrice((Double) ((LinkedHashMap) fav).get("price"));
+        f.setDescription((String) ((LinkedHashMap) fav).get("description"));
+        Optional<Client> opcionalClient = clientRepository.findById((String) ((LinkedHashMap) ((LinkedHashMap) fav).get("cliente")).get("email"));
+        f.setClient(opcionalClient.get());
 
-        System.out.println(fav);
-
-        favouriteRepository.save(f);
-
+        for (int i  = 0; i < lista.size(); i++){
+            if (lista.equals(f)){
+                System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeooooooooooooooooooooooo");
+            }
+        }
+        //favouriteRepository.save(f);
 
     return null;
-
-
 
     }
 

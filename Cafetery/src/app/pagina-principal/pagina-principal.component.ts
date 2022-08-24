@@ -21,7 +21,7 @@ export class PaginaPrincipalComponent implements OnInit {
   cafes: Coffe[] = [];
   contador: number = 0;
 
-  favori: Fav = { 
+  favori: Fav = {
 
     typeCoffe: '',
     price: 0,
@@ -111,24 +111,29 @@ export class PaginaPrincipalComponent implements OnInit {
 
   addFavoritos(coffe: string){
     let con = 0;
-    for (let j=0; j < this.pedidoServicio.favoritos.length; j++ ){
-      if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
-        this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
-       
-        this.pedidoServicio.favoritos.splice(j, 1);
-        con = 1;
-        break;
+    if (this.pedidoServicio.logeado.nombre != undefined){
+      for (let j=0; j < this.pedidoServicio.favoritos.length; j++ ){
+        if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
+          this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
+
+          this.pedidoServicio.favoritos.splice(j, 1);
+          con = 1;
+          break;
+        }
       }
-    }
-    for (let i=0; i < this.cafes.length; i++){
-      if (this.cafes[i].typeCoffe == coffe && con == 0){
-        this.favori = {typeCoffe: this.cafes[i].typeCoffe, description: this.cafes[i].description, price: this.cafes[i].price, cliente: this.pedidoServicio.logeado}  ;
-        this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
-        
-        this.pedidoServicio.favoritos.push(this.favori);
-        break;
+      for (let i=0; i < this.cafes.length; i++){
+        if (this.cafes[i].typeCoffe == coffe && con == 0){
+          this.favori = {typeCoffe: this.cafes[i].typeCoffe, description: this.cafes[i].description, price: this.cafes[i].price, cliente: this.pedidoServicio.logeado}  ;
+          this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
+
+          this.pedidoServicio.favoritos.push(this.favori);
+          break;
+        }
       }
+    }else{
+      window.alert ("Por favor haz Login");
     }
+
     console.log(this.pedidoServicio.favoritos);
   }
 }

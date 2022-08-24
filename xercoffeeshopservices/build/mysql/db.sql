@@ -17,8 +17,25 @@ CREATE TABLE pedido(
     regist_date date,
     PRIMARY KEY (order_id)
 );
+CREATE TABLE client(
+    nombre varchar (70),
+    apellido varchar (70),
+    email varchar (70),
+    pass varchar(100),
+    PRIMARY KEY (email, pass)
+);
+CREATE TABLE favourite(
+    type_Coffe varchar (70),
+    price double,
+    description text,
+    client_email varchar (70),
+    PRIMARY KEY (type_Coffe, client_email)
+);
 ALTER TABLE coffe_o ADD CONSTRAINT hola1 FOREIGN KEY (coffe_type_coffe) REFERENCES coffe (type_coffe);
 ALTER TABLE coffe_o ADD CONSTRAINT hola2 FOREIGN KEY (pedido_order_id) REFERENCES pedido (order_id);
+
+ALTER TABLE favourite ADD CONSTRAINT hola3 FOREIGN KEY (client_email) REFERENCES client (email);
+ALTER TABLE favourite ADD CONSTRAINT hola4 FOREIGN KEY (type_coffe) REFERENCES coffe (type_coffe);
 
 insert into coffe (Type_Coffe, Price, description, imagen )
 values ('Cafe con leche',1.50, 'Consiste en una base de espresso a la cual se le añade la misma cantidad de leche','https://th.bing.com/th/id/OIP.oX86QzATpdXdYSRUNm8TcQHaE8?pid=ImgDet&rs=1');

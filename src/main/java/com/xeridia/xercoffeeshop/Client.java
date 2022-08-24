@@ -19,7 +19,7 @@ public class Client {
     @Column(name = "email", length = 150)
     private String email;
 
-    @Column(name = "password", length = 150)
+    @Column(name = "pass", length = 150)
     private String password;
 
     @OneToMany(mappedBy = "client", orphanRemoval = true)
