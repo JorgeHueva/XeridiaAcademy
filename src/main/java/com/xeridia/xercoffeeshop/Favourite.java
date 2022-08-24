@@ -77,4 +77,15 @@ public class Favourite {
         this.imagen = imagen;
     }
 
+    @Override
+    public String toString() {
+        return "Favourite{" +
+                "typeCoffe='" + typeCoffe + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", client=" + client +
+                ", id=" + id +
+                '}';
+    }
 }

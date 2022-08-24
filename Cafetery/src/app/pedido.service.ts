@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coffe } from './coffe';
 import { Coffe_o } from './coffe_o';
+import { Fav } from './fav';
 import { Person } from './person';
 
 @Injectable({
@@ -14,10 +15,11 @@ export class PedidoService {
   private addURL = "http://localhost:8080/cafeteria/agrega";
   private registroURL = "http://localhost:8080/cafeteria/registro";
   private baseCliente = "http://localhost:8080/cafeteria/login";
+  private baseFav = "http://localhost:8080/cafeteria/favoritos";
 
   order: Array<Coffe_o> = [];
 
-  favoritos: Array <Coffe> =[];
+  favoritos: Array <Fav> =[];
 
   logeado: Person = {};
 
@@ -37,4 +39,9 @@ export class PedidoService {
     return this.httpClient.post(`${this.baseCliente}`, logeado);
 }
 
+  fav(fav: Fav): Observable<any> {
+    return this.httpClient.post(`${this.baseFav}`, fav); 
+  }
+
+ 
 }

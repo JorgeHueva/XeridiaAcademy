@@ -2,10 +2,7 @@ package com.xeridia.xercoffeeshop;
 
 
 import com.google.gson.JsonObject;
-import com.xeridia.xercoffeeshop.repository.ClientRepository;
-import com.xeridia.xercoffeeshop.repository.CoffeRepository;
-import com.xeridia.xercoffeeshop.repository.Coffe_ORepository;
-import com.xeridia.xercoffeeshop.repository.PedidoRepository;
+import com.xeridia.xercoffeeshop.repository.*;
 import org.apache.commons.codec.digest.MessageDigestAlgorithms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +28,8 @@ public class ControllingCoffe {
     private PedidoRepository pedidoRepository;
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private FavouriteRepository favouriteRepository;
 
     Long num = Long.valueOf(0);
 
@@ -104,12 +103,12 @@ public class ControllingCoffe {
         c = logeado;
 
         c.setPassword(getHash(logeado.getPassword()));
-        System.out.println(logeado.getPassword());
+
         Optional<Client> opcionalclient = clientRepository.findById(c.getEmail());
         if (!opcionalclient.isEmpty() && Objects.equals(opcionalclient.get().getPassword(), c.getPassword()) ){
             return opcionalclient.get();
         }
-        System.out.println("tu gozo en un pozo");
+
         return null;
     }
 
@@ -129,4 +128,24 @@ public class ControllingCoffe {
         }
         return null;
     }
+
+    @PostMapping(path = "/favoritos")
+    public @ResponseBody Favourite addFav (@RequestBody(required=false) Favourite fav){
+
+        Favourite f = new Favourite();
+        f = fav;
+
+        f.setTypeCoffe(fav.getTypeCoffe());
+
+        System.out.println(fav);
+
+        favouriteRepository.save(f);
+
+
+    return null;
+
+
+
+    }
+
 }

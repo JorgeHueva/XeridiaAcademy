@@ -34,5 +34,6 @@ export class LoginComponent implements OnInit {
   logout(){
     this.conectado = {};
     this.pedidoServicio.logeado = this.conectado;
+    
   }
 }

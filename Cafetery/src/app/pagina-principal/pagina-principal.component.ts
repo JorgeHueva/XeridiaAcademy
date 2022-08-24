@@ -5,8 +5,8 @@ import { Coffe } from '../coffe';
 import { PedidoService } from '../pedido.service';
 import { Coffe_o } from '../coffe_o';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { FormControl } from '@angular/forms';
-import { FavoritosComponent } from '../favoritos/favoritos.component';
+
+import { Fav } from '../fav';
 
 
 @Component({
@@ -20,6 +20,15 @@ export class PaginaPrincipalComponent implements OnInit {
 
   cafes: Coffe[] = [];
   contador: number = 0;
+
+  favori: Fav = { 
+
+    typeCoffe: '',
+    price: 0,
+    description: '',
+    cliente : {nombre:'', apellido:'', email:'', password: ''},
+  };
+
 
   pedido: Array<Coffe_o> = this.pedidoServicio.order;
   coffe_o: Coffe_o = {numCoffe: 0, price:0, typeCoffe:""};
@@ -104,6 +113,8 @@ export class PaginaPrincipalComponent implements OnInit {
     let con = 0;
     for (let j=0; j < this.pedidoServicio.favoritos.length; j++ ){
       if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
+        this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
+       
         this.pedidoServicio.favoritos.splice(j, 1);
         con = 1;
         break;
@@ -111,7 +122,10 @@ export class PaginaPrincipalComponent implements OnInit {
     }
     for (let i=0; i < this.cafes.length; i++){
       if (this.cafes[i].typeCoffe == coffe && con == 0){
-        this.pedidoServicio.favoritos.push(this.cafes[i]);
+        this.favori = {typeCoffe: this.cafes[i].typeCoffe, description: this.cafes[i].description, price: this.cafes[i].price, cliente: this.pedidoServicio.logeado}  ;
+        this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
+        
+        this.pedidoServicio.favoritos.push(this.favori);
         break;
       }
     }

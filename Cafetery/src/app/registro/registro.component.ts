@@ -33,6 +33,7 @@ export class RegistroComponent implements OnInit {
 
   Guardar(){
     this.servicioRegistro.registroClientes(this.person).subscribe();
+    window.alert("Su usario ha sido registrado")
   }
 
 
