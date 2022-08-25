@@ -1,6 +1,6 @@
-package com.xeridia.xercoffeeshop;
+package com.xeridia.xercoffeeshop.tablas;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+import com.xeridia.xercoffeeshop.tablas.Coffe_O;
 
 import javax.persistence.*;
 import java.time.LocalDate;

@@ -12,27 +12,28 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { PedidoComponent } from './Pedido/Pedido.component';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { PedidoComponent } from './componentes/Pedido/Pedido.component';
+import { PaginaPrincipalComponent } from './componentes/pagina-principal/pagina-principal.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { DialogBoxComponent } from './componentes/dialog-box/dialog-box.component';
 import { MatSortModule } from '@angular/material/sort';
-import { DescripcionCafeteriaComponent } from './descripcion-cafeteria/descripcion-cafeteria.component';
+import { DescripcionCafeteriaComponent } from './componentes/descripcion-cafeteria/descripcion-cafeteria.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { RegistroComponent } from './registro/registro.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import { LoginComponent } from './login/login.component';
-import { FavoritosComponent } from './favoritos/favoritos.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { JuegosComponent } from './componentes/juegos/juegos.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
       DescripcionCafeteriaComponent,
       RegistroComponent,
       LoginComponent,
-      FavoritosComponent
+      FavoritosComponent,
+      JuegosComponent
    ],
   imports: [
     HttpClientModule,
@@ -77,7 +79,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
       {path: 'registro', component: RegistroComponent},
       {path: 'login', component: LoginComponent},
       {path: 'Favoritos', component: FavoritosComponent},
-
+      {path: 'juegos', component: JuegosComponent}
     ]),
 
    ],

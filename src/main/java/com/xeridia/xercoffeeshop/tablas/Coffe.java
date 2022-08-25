@@ -1,4 +1,4 @@
-package com.xeridia.xercoffeeshop;
+package com.xeridia.xercoffeeshop.tablas;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;

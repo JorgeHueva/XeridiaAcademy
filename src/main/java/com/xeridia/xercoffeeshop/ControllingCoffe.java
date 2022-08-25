@@ -1,16 +1,12 @@
 package com.xeridia.xercoffeeshop;
 
 
-import com.google.gson.JsonObject;
 import com.xeridia.xercoffeeshop.repository.*;
-import org.apache.commons.codec.digest.MessageDigestAlgorithms;
+import com.xeridia.xercoffeeshop.tablas.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import java.security.MessageDigest;
-import org.apache.commons.codec.binary.Base64;
 
-import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.*;

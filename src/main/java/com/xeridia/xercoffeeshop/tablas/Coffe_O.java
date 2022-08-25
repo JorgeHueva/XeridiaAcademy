@@ -1,6 +1,5 @@
-package com.xeridia.xercoffeeshop;
+package com.xeridia.xercoffeeshop.tablas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 import javax.persistence.*;
