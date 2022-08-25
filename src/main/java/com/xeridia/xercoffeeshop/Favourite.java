@@ -3,6 +3,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "Favourite")
 public class Favourite {
@@ -65,6 +67,13 @@ public class Favourite {
         this.description = description;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Favourite)) return false;
+        Favourite favourite = (Favourite) o;
+        return Double.compare(favourite.getPrice(), getPrice()) == 0 && Objects.equals(getTypeCoffe(), favourite.getTypeCoffe()) && Objects.equals(getDescription(), favourite.getDescription()) && Objects.equals(getClient(), favourite.getClient());
+    }
     @Override
     public String toString() {
         return "Favourite{" +

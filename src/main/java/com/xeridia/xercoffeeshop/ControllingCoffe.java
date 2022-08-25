@@ -130,13 +130,13 @@ public class ControllingCoffe {
     }
 
     @PostMapping(path = "/favoritos")
-    public @ResponseBody Favourite addFav (@RequestBody(required=false) Object fav){
+    public @ResponseBody List<Favourite>  addFav (@RequestBody(required=false) Object fav){
 
         Favourite f = new Favourite();
         List<Favourite> lista;
-
         lista = (List<Favourite>) favouriteRepository.findAll();
-        System.out.println(((LinkedHashMap) fav).get("price"));
+        int con = 0;
+
         f.setTypeCoffe ((String) ((LinkedHashMap) fav).get("typeCoffe"));
         f.setPrice((Double) ((LinkedHashMap) fav).get("price"));
         f.setDescription((String) ((LinkedHashMap) fav).get("description"));
@@ -144,14 +144,23 @@ public class ControllingCoffe {
         f.setClient(opcionalClient.get());
 
         for (int i  = 0; i < lista.size(); i++){
-            if (lista.equals(f)){
-                System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeooooooooooooooooooooooo");
+            if (lista.get(i).equals(f)){
+                favouriteRepository.deleteById(lista.get(i).getId());
+                con = 1;
+                break;
             }
         }
-        //favouriteRepository.save(f);
+        if (con == 0){
+            favouriteRepository.save(f);
+        }
 
-    return null;
+        return (List<Favourite>) favouriteRepository.findByClient_EmailLike(f.getClient().getEmail());
+    }
 
+    @PostMapping(path="/fav")
+    public @ResponseBody List<Favourite> getAllFav(@RequestBody String email) {
+        // This returns a JSON or XML with the users
+        return favouriteRepository.findByClient_EmailLike(email);
     }
 
 }

@@ -3,6 +3,7 @@ package com.xeridia.xercoffeeshop;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -64,6 +65,15 @@ public class Client {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Client)) return false;
+        Client client = (Client) o;
+        return Objects.equals(getNombre(), client.getNombre()) && Objects.equals(apellido, client.apellido) && Objects.equals(getEmail(), client.getEmail()) && Objects.equals(getPassword(), client.getPassword()) && Objects.equals(getFavourites(), client.getFavourites());
+    }
+
 
     @Override
     public String toString() {

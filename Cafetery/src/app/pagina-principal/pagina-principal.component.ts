@@ -110,23 +110,14 @@ export class PaginaPrincipalComponent implements OnInit {
   }
 
   addFavoritos(coffe: string){
-    let con = 0;
+
     if (this.pedidoServicio.logeado.nombre != undefined){
-      for (let j=0; j < this.pedidoServicio.favoritos.length; j++ ){
-        if (this.pedidoServicio.favoritos[j].typeCoffe == coffe){
-          this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
-
-          this.pedidoServicio.favoritos.splice(j, 1);
-          con = 1;
-          break;
-        }
-      }
-      for (let i=0; i < this.cafes.length; i++){
-        if (this.cafes[i].typeCoffe == coffe && con == 0){
+        for (let i=0; i < this.cafes.length; i++){
+        if (this.cafes[i].typeCoffe == coffe){
           this.favori = {typeCoffe: this.cafes[i].typeCoffe, description: this.cafes[i].description, price: this.cafes[i].price, cliente: this.pedidoServicio.logeado}  ;
-          this.pedidoServicio.fav(this.favori).subscribe(data=>console.log(data));
-
-          this.pedidoServicio.favoritos.push(this.favori);
+          this.pedidoServicio.fav(this.favori).subscribe(data=>
+            this.pedidoServicio.favoritos = data
+            );
           break;
         }
       }

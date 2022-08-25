@@ -65,10 +65,15 @@ export class PedidoComponent implements OnInit {
   }
 
   guardarCafes(){
-    this.pedidoServicio.registrarCafes(this.pedidoServicio.order).subscribe();
-    this.reinicioLista ();
-    this.total = 0;
+    if (this.pedidoServicio.logeado.nombre != undefined){
+      this.pedidoServicio.registrarCafes(this.pedidoServicio.order).subscribe();
+      this.reinicioLista ();
+      this.total = 0;
+    }else{
+      window.alert ("Por favor haz Login");
+    }
   }
+
   reinicioLista (){
     this.pedidoServicio.order = [];
   }
@@ -76,6 +81,7 @@ export class PedidoComponent implements OnInit {
     this.total = 0;
     for (let i = 0; i < this.pedidoServicio.order.length; i++){
       this.total = this.total + this.pedidoServicio.order[i].price;
+      this.total = Number(this.total.toFixed(2));
     }
   }
   ngOnInit() {

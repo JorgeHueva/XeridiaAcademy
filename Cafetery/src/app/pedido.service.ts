@@ -16,6 +16,7 @@ export class PedidoService {
   private registroURL = "http://localhost:8080/cafeteria/registro";
   private baseCliente = "http://localhost:8080/cafeteria/login";
   private baseFav = "http://localhost:8080/cafeteria/favoritos";
+  private baseObtenerFav = "http://localhost:8080/cafeteria/fav";
 
   order: Array<Coffe_o> = [];
 
@@ -40,8 +41,11 @@ export class PedidoService {
 }
 
   fav(fav: Fav): Observable<any> {
+    console.log(fav);
     return this.httpClient.post(`${this.baseFav}`, fav);
   }
 
-
+  obtenerfav (email: String | undefined): Observable<any> {
+    return this.httpClient.post(`${this.baseObtenerFav}`, email);
+}
 }

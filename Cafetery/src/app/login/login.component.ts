@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Fav } from '../fav';
 import { PedidoService } from '../pedido.service';
 import { Person } from '../person';
 
@@ -11,6 +12,13 @@ export class LoginComponent implements OnInit {
 
   cliente: Person = {};
   conectado: Person = {};
+  favo: Fav = {
+
+    typeCoffe: '',
+    price: 0,
+    description: '',
+    cliente : {nombre:'', apellido:'', email:'', password: ''},
+  };
 
   constructor(private pedidoServicio: PedidoService) { }
 
@@ -26,14 +34,17 @@ export class LoginComponent implements OnInit {
       }else{
         this.conectado = dato as Person;
         this.pedidoServicio.logeado = this.conectado;
+        this.pedidoServicio.obtenerfav(this.pedidoServicio.logeado.email).subscribe(data =>
+          this.pedidoServicio.favoritos = data
+        )
       }
     })
     this.cliente = this.conectado;
-
   }
+
   logout(){
     this.conectado = {};
     this.pedidoServicio.logeado = this.conectado;
-    
+    this.pedidoServicio.favoritos = [];
   }
 }
