@@ -34,6 +34,7 @@ import { MatListModule } from '@angular/material/list';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
+import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_dinosaurio.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { JuegosComponent } from './componentes/juegos/juegos.component';
       {path: 'registro', component: RegistroComponent},
       {path: 'login', component: LoginComponent},
       {path: 'Favoritos', component: FavoritosComponent},
-      {path: 'juegos', component: JuegosComponent}
+      {path: 'juegos', component: JuegosComponent},
+      {path: 'juego_dinosaurio', component: Juego_dinosaurioComponent}
     ]),
 
    ],

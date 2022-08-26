@@ -20,10 +20,25 @@
 <mat-menu #menu="matMenu">
   <nav>
     <a mat-menu-item class ="button" routerLink="/descripcion-cafeteria" routerLinkActive="activebutton"> <mat-icon class="mat-1">home</mat-icon>  Inicio</a>
-    <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton"> <mat-icon class="mat-18">coffee </mat-icon> Mis Productos</a>
+    <button mat-menu-item color="primary" [matMenuTriggerFor]="menu1"> <mat-icon class="mat-1">store</mat-icon> Mis Productos</button>
+    <div class="productos">
+        <mat-menu #menu1="matMenu">
+          <nav>
+            <a mat-menu-item class ="button" routerLink="/pagina-principal" routerLinkActive="activebutton"> <mat-icon class="mat-18">coffee </mat-icon> Cafes</a>
+          </nav>
+        </mat-menu>
+    </div>
     <a mat-menu-item class ="button" routerLink="/Pedido" routerLinkActive="click"> <mat-icon class="mat-18">shopping_basket</mat-icon> Cesta</a>
     <a mat-menu-item class ="button" routerLink="/Favoritos" routerLinkActive="activebutton"> <mat-icon class="mat-1">favorite</mat-icon>  Favoritos</a>
-    <a mat-menu-item class ="button" routerLink="/juegos" routerLinkActive="activebutton"> <mat-icon class="mat-1">games</mat-icon>  Juegos</a>
+    <button mat-menu-item color="primary" [matMenuTriggerFor]="menu2"> <mat-icon class="mat-1">games</mat-icon> Games</button>
+    <div class="juegos">
+      <mat-menu #menu2="matMenu">
+        <nav>
+          <a mat-menu-item class ="button" routerLink="/juegos" routerLinkActive="activebutton">Piedra, Papel y Tijeras</a>
+          <a mat-menu-item class ="button" routerLink="/juego_dinosaurio" routerLinkActive="activebutton">Dinosaurio</a>
+        </nav>
+      </mat-menu>
+    </div>
   </nav>
 </mat-menu>
 </div>

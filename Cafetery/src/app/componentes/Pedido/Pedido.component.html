@@ -1,0 +1,46 @@
+
+<h2>Lista del pedido</h2>
+
+<table mat-table [dataSource]="pedidoServicio.order" class="mat-elevation-z8" #tabla1>
+
+  <ng-container matColumnDef="Tipo">
+    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+    <td mat-cell *matCellDef="let datos"> {{datos.typeCoffe}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Numero">
+    <th mat-header-cell *matHeaderCellDef> Numero </th>
+    <td mat-cell *matCellDef="let datos"> {{datos.numCoffe}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Precio">
+    <th mat-header-cell *matHeaderCellDef> Precio </th>
+    <td mat-cell *matCellDef="let datos"> {{datos.price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let datos" class="action-link">
+      <button mat-raised-button class="update">
+        <mat-icon> edit </mat-icon>
+         <a (click)="openDialog('Update',datos)">Edit</a>
+              </button>
+      <button mat-raised-button class = "delete">
+        <mat-icon> delete </mat-icon>
+        <a (click)="openDialog('Delete',datos)">Delete</a>
+      </button>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+</table>
+
+<div class="confirmar" style="text-align: right">
+  <button mat-button (click)="guardarCafes()" >Confirmar</button>
+</div>
+
+<div class="total">
+  <p class="total-precio">Total: {{total}}</p>
+</div>
