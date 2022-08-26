@@ -35,6 +35,10 @@ import { MatListModule } from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_dinosaurio.component';
+import { ComidaComponent } from './comida/comida.component';
+
+import {MatCardModule} from '@angular/material/card';
+ComidaComponent
 
 
 @NgModule({
@@ -47,7 +51,8 @@ import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_
       RegistroComponent,
       LoginComponent,
       FavoritosComponent,
-      JuegosComponent
+      JuegosComponent,
+      ComidaComponent,
    ],
   imports: [
     HttpClientModule,
@@ -71,6 +76,7 @@ import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_
     MatListModule,
     MatExpansionModule,
     MatButtonToggleModule,
+    MatCardModule,
 
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
@@ -81,7 +87,8 @@ import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_
       {path: 'login', component: LoginComponent},
       {path: 'Favoritos', component: FavoritosComponent},
       {path: 'juegos', component: JuegosComponent},
-      {path: 'juego_dinosaurio', component: Juego_dinosaurioComponent}
+      {path: 'juego_dinosaurio', component: Juego_dinosaurioComponent},
+      {path: 'comida', component: ComidaComponent},
     ]),
 
    ],

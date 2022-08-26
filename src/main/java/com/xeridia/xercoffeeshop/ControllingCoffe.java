@@ -27,6 +27,9 @@ public class ControllingCoffe {
     @Autowired
     private FavouriteRepository favouriteRepository;
 
+    @Autowired
+    private FoodRepository foodRepository;
+
     Long num = Long.valueOf(0);
 
     public String addNewCoffe_O (String Type_Coffe, int num_Coffe, double Price, Long num){
@@ -157,6 +160,12 @@ public class ControllingCoffe {
     public @ResponseBody List<Favourite> getAllFav(@RequestBody String email) {
         // This returns a JSON or XML with the users
         return favouriteRepository.findByClient_EmailLike(email);
+    }
+
+    @GetMapping(path="/comida")
+    public @ResponseBody List<Food> getFood() {
+        // This returns a JSON or XML with the users
+        return foodRepository.findAll();
     }
 
 }

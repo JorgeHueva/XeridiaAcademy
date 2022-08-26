@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
+import { Food } from '../food';
 import { Coffe } from '../interfaces/coffe';
 import { Coffe_o } from '../interfaces/coffe_o';
 import { Fav } from '../interfaces/Fav';
@@ -17,6 +18,7 @@ export class PedidoService {
   private baseCliente = "http://localhost:8080/cafeteria/login";
   private baseFav = "http://localhost:8080/cafeteria/favoritos";
   private baseObtenerFav = "http://localhost:8080/cafeteria/fav";
+  private baseFood = "http://localhost:8080/cafeteria/comida";
 
   order: Array<Coffe_o> = [];
 
@@ -48,4 +50,11 @@ export class PedidoService {
   obtenerfav (email: String | undefined): Observable<any> {
     return this.httpClient.post(`${this.baseObtenerFav}`, email);
 }
+
+obtenerFood (): Observable<Food []> {
+  return this.httpClient.get<Food []>(`${this.baseFood}`);
+}
+
+
+
 }

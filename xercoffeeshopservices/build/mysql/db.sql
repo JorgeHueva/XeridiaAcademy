@@ -31,11 +31,27 @@ CREATE TABLE favourite(
     client_email varchar (70),
     PRIMARY KEY (type_Coffe, client_email)
 );
+
+CREATE TABLE food (
+    type_food varchar (70) ,
+    price double ,
+    description text,
+    imagen varchar(100),
+    PRIMARY KEY (type_food)
+);
+
+
+
 ALTER TABLE coffe_o ADD CONSTRAINT hola1 FOREIGN KEY (coffe_type_coffe) REFERENCES coffe (type_coffe);
 ALTER TABLE coffe_o ADD CONSTRAINT hola2 FOREIGN KEY (pedido_order_id) REFERENCES pedido (order_id);
-
 ALTER TABLE favourite ADD CONSTRAINT hola3 FOREIGN KEY (client_email) REFERENCES client (email);
 ALTER TABLE favourite ADD CONSTRAINT hola4 FOREIGN KEY (type_coffe) REFERENCES coffe (type_coffe);
+
+insert into food (Type_food, Price, description,imagen )
+values ('Pincho tortilla',2.00, 'Deliciosas patatas freidas a fuego lento con huevos batidos y una pizca de sal, dando como resultado una textura perfecta ', 'https://canalcocina.es/medias/_cache/zoom-ed33006354886cff3b7d7b01d3629fb7-920-518.jpg');
+insert into food (Type_food, Price, description, imagen)
+values ('Bocadito de jamon', 2.20, 'Jamón ibérico con pan horneado del día con un chorrito de aceite de oliva virgen extra y un poco de tomate  ', 'https://minimarketformentera.com/wp-content/uploads/2021/06/Entrepa-Pernil-scaled.jpg');
+
 
 insert into coffe (Type_Coffe, Price, description, imagen )
 values ('Cafe con leche',1.50, 'Consiste en una base de espresso a la cual se le añade la misma cantidad de leche','https://th.bing.com/th/id/OIP.oX86QzATpdXdYSRUNm8TcQHaE8?pid=ImgDet&rs=1');
@@ -57,9 +73,6 @@ insert into coffe (Type_Coffe, Price, description,imagen )
 values ('Te rojo',1.90, 'El té rojo es un tipo de té que se obtiene a partir de hojas del árbol Camellia sinensis, el mismo del que procede el té verde, solo que estas son sometidas a un tipo de procesamiento muy distinto que hace que también varíen las propiedades de esta planta', 'https://www.definicionabc.com/wp-content/uploads/general/te-rojo-2-410x339.jpg');
 insert into coffe (Type_Coffe, Price, description,imagen )
 values ('Te negro',1.90, 'El té negro es una variedad de té obtenido de la planta Camellia sinensis, la misma de la que se obtienen el té verde y el té rojo, este se logra al emplear hojas y tallos envejecidos, lo que cambia sus propiedades y sus efectos en el organismo', 'https://t2.uc.ltmcdn.com/es/posts/5/0/3/cuales_son_las_contraindicaciones_del_te_negro_41305_orig.jpg');
-insert into coffe (Type_Coffe, Price, description,imagen )
-values ('Pincho tortilla',2.00, 'Deliciosas patatas freidas a fuego lento con huevos batidos y una pizca de sal, dando como resultado una textura perfecta ', 'https://canalcocina.es/medias/_cache/zoom-ed33006354886cff3b7d7b01d3629fb7-920-518.jpg');
-insert into coffe (Type_Coffe, Price, description, imagen)
-values ('Bocadito de jamon', 2.20, 'Jamón ibérico con pan horneado del día con un chorrito de aceite de oliva virgen extra y un poco de tomate  ', 'https://minimarketformentera.com/wp-content/uploads/2021/06/Entrepa-Pernil-scaled.jpg');
-insert into coffe (Type_Coffe, Price, description, imagen)
-values ('Bollería del día', 1.50, 'Dependiendo del día de la semana una panadería nos trae diferentes variedades', 'https://www.consumer.es/app/uploads/fly-images/101195/img_aceite-palma-bolleria-industrial-hd-1200x550-cc.jpg');
+
+
+
