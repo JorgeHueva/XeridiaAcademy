@@ -38,7 +38,8 @@ import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_
 import { ComidaComponent } from './componentes/comida/comida.component';
 
 import {MatCardModule} from '@angular/material/card';
-ComidaComponent
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 @NgModule({
@@ -77,7 +78,7 @@ ComidaComponent
     MatExpansionModule,
     MatButtonToggleModule,
     MatCardModule,
-
+    MatGridListModule,
     RouterModule.forRoot([
       {path: 'pagina-principal', component: PaginaPrincipalComponent},
       {path: 'Pedido', component: PedidoComponent},
