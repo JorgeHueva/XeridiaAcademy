@@ -40,10 +40,12 @@ export class ComidaComponent implements OnInit {
 
   sumar(nombre: string){
     for (let i = 0; i < this.order.length ; i++){
-      console.log(this.order[i].cantidad);
+      console.log(nombre);
       if (this.comida[i].typeFood == nombre){
-        this.order[i].cantidad ++;
-       // console.log(this.comida[i].cantidad);
+        console.log(this.order[i]);
+        this.order[i].cantidad = this.order[i].cantidad + 1 ;
+       console.log(this.order);
+       break;
       }
     }
     
@@ -51,25 +53,28 @@ export class ComidaComponent implements OnInit {
 
   restar(nombre: string){
     for (let i = 0; i < this.order.length ; i++){
-      console.log(this.order[i].cantidad);
-      if (this.order[i].typeFood == nombre && this.order[i].cantidad > 0){
-        this.order[i].cantidad ;
-       // console.log(this.order[i].cantidad);
+      if (this.comida[i].typeFood == nombre && this.order[i].cantidad > 0){
+        this.order[i].cantidad --;
+        console.log(this.order);
       }
     }
   }
 
+
   inicializarPedido(){
-    // console.log(this.comida.length)
+     
     for (let i = 0; i < this.comida.length ; i++){
+    //console.log(this.food_o.typeFood = this.comida[i].typeFood )
       
       this.food_o.typeFood = this.comida[i].typeFood ;
+      
       this.food_o.price = 0;
       this.food_o.cantidad = 0;
-      this.order.push(this.food_o);
-      
+      this.order[i] = this.food_o;
+      // console.log( this.food_o);
+     // console.log( this.comida[i].typeFood);
     }
-    
+    console.log(this.order)
   }
   
 }
