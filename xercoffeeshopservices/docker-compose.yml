@@ -5,6 +5,7 @@ services:
   mysql-development:
     #image: mysql:8.0.17
     build:
+      context: ./
       dockerfile: Dockerfile.mysql
     container_name: mysql-coffeeshop
     hostname: xercoffeeshop
