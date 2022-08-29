@@ -35,7 +35,7 @@ import { MatListModule } from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { Juego_dinosaurioComponent } from './componentes/juego_dinosaurio/juego_dinosaurio.component';
-import { ComidaComponent } from './comida/comida.component';
+import { ComidaComponent } from './componentes/comida/comida.component';
 
 import {MatCardModule} from '@angular/material/card';
 ComidaComponent

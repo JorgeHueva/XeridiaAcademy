@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Food } from '../food';
+import { Food } from '../interfaces/food';
 import { Coffe } from '../interfaces/coffe';
 import { Coffe_o } from '../interfaces/coffe_o';
 import { Fav } from '../interfaces/Fav';
