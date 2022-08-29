@@ -1,23 +1,26 @@
 
+<mat-grid-list  cols="2" rowHeight="500px">
+  <mat-grid-tile class="columnas">
+      <mat-card class="card" *ngFor="let food of order" >
+        <mat-card-title-group>
+          <mat-card-title>{{food.typeFood}}</mat-card-title>
 
-<mat-card class="card"  *ngFor="let food of order">
-  <mat-card-title-group>
-    <mat-card-title>{{food.typeFood}}</mat-card-title>
+        </mat-card-title-group>
+      <mat-card-content>
+        <p> <img class="imagenes" [src]="food.imagen"> </p>
+        <p class="description"> {{food.description}}  </p> <br>
+        <p class="price"> {{food.price}} € </p>
+      </mat-card-content>
 
-  </mat-card-title-group>
-  <mat-card-content>
-    <p> <img class="imagenes" [src]="food.imagen"> </p>
-    <div></div>
-    <p class="description"> {{food.description}}  </p> <br>
-    <p class="price"> {{food.price}} € </p>
-  </mat-card-content>
+      <mat-card-actions class="boton" >
+        <button  mat-raised-button (click)="sumar(food.typeFood)"><mat-icon>add</mat-icon></button>
+          <span class="cero" >{{food.cantidad}}</span>
+        <button  mat-raised-button (click)="restar(food.typeFood)"><mat-icon>remove</mat-icon></button>
 
-  <mat-card-actions class="boton" >
-    <button  mat-raised-button (click)="sumar(food.typeFood)"><mat-icon>add</mat-icon></button>
-      <span class="cero" >{{food.cantidad}}</span>
-    <button  mat-raised-button (click)="restar(food.typeFood)"><mat-icon>remove</mat-icon></button>
+      </mat-card-actions>
 
-  </mat-card-actions>
-
-
-</mat-card>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<button mat-stroked-button class="btn-success"> Pedido </button>
+<div class="espacio"></div>
