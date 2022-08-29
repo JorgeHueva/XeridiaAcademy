@@ -1,26 +1,25 @@
 .columnas{
-  background-color: aliceblue;
-  
+ 
+
 }
 .card{
     width:  400px;
     height: 250px;
     margin-top: 5%;
     margin-left: 2%;
+
 }
 
-
 .imagenes{
+
     float: left;
     width:  100px;
     height: 100px;
     object-fit: cover;
-
 }
 
 .description{
     margin-left: 20%;
-
 }
 
 .price{
@@ -30,13 +29,11 @@
 .boton{
     margin-top: 10%;
     margin-left: 40%;
-
 }
 
 .cero{
     margin-left: 5%;
     margin-right: 5%;
-
 }
 
 .espacio{

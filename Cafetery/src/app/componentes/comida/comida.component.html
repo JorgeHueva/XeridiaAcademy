@@ -1,7 +1,7 @@
 
-<mat-grid-list  cols="2" rowHeight="500px">
-  <mat-grid-tile class="columnas">
-      <mat-card class="card" *ngFor="let food of order" >
+<mat-grid-list  cols="2" rowHeight="500px" >
+  <mat-grid-tile class="columnas" *ngFor="let food of order" >
+      <mat-card class="card"  >
         <mat-card-title-group>
           <mat-card-title>{{food.typeFood}}</mat-card-title>
 
@@ -22,5 +22,5 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-<button mat-stroked-button class="btn-success"> Pedido </button>
+<button mat-stroked-button class="btn-success" (click)="agregarPedido()"> Pedido </button>
 <div class="espacio"></div>
