@@ -30,6 +30,10 @@ public class ControllingCoffe {
     @Autowired
     private FoodRepository foodRepository;
 
+    @Autowired
+    private Food_ORepository food_oRepository;
+    private List <Food> food;
+
     Long num = Long.valueOf(0);
 
     public String addNewCoffe_O (String Type_Coffe, int num_Coffe, double Price, Long num){
@@ -37,8 +41,12 @@ public class ControllingCoffe {
         Coffe_O c = new Coffe_O();
 
         Optional<Coffe> optionalCoffe = repository.findById(Type_Coffe);
+
         Optional<Pedido> optionalOrder = pedidoRepository.findById(num);
-        if (optionalCoffe.isPresent() && optionalOrder.isPresent()) {
+
+
+
+        if (optionalCoffe.isPresent()  && optionalOrder.isPresent()) {
             c.setCoffe(optionalCoffe.get());
             c.setNum_Coffe(num_Coffe);
             c.setPrice(Price);
@@ -66,12 +74,21 @@ public class ControllingCoffe {
             for (int i=0; i < order.size() ;i++){
                 typeCoffe = (String) ((LinkedHashMap) order.get(i)).get("typeCoffe");
                 numCoffe = (int) ((LinkedHashMap) order.get(i)).get("numCoffe");
+
                 if (((LinkedHashMap) order.get(i)).get("price").getClass().isInstance(Double.valueOf(0.00))){
                     price = (double) ((LinkedHashMap) order.get(i)).get("price");
                 }else {
                     price = ((Integer) ((LinkedHashMap) order.get(i)).get("price")).doubleValue();
                 }
-                this.addNewCoffe_O(typeCoffe,numCoffe,price,num);
+
+                Optional<Food> optionalFood = foodRepository.findById(typeCoffe);
+
+                if (optionalFood.isPresent() ){
+
+                    this.addNewFood_O(typeCoffe,numCoffe,price,num);
+                } else {
+                    this.addNewCoffe_O(typeCoffe,numCoffe,price,num);
+                }
             }
         }
         num ++;
@@ -166,6 +183,27 @@ public class ControllingCoffe {
     public @ResponseBody List<Food> getFood() {
         // This returns a JSON or XML with the users
         return foodRepository.findAll();
+    }
+
+    public String addNewFood_O (String Type_Coffe, int num_Coffe, double Price, Long num){
+        Food_O f = new Food_O();
+
+
+        Optional <Food>  optionalFood = foodRepository.findById(Type_Coffe);
+        Optional<Pedido> optionalOrder = pedidoRepository.findById(num);
+
+
+        if (optionalFood.isPresent()  && optionalOrder.isPresent()) {
+            System.out.println("holaa");
+            f.setFood(optionalFood.get());
+            f.setNum_Food(num_Coffe);
+            f.setPrice(Price);
+            f.setPedido(optionalOrder.get());
+            food_oRepository.save(f);
+        }
+
+        return "Saved";
+
     }
 
 }
