@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  mysql-development:
+    image: mysql:8.0.17
+    container_name: mysql_paises
+    hostname: mysql_paises
+    environment:
+      MYSQL_DATABASE: world2
+      MYSQL_ROOT_PASSWORD: helloworld
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./build/mysql/world.sql:/docker-entrypoint-initdb.d/world.sql
